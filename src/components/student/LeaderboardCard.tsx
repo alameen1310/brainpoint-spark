@@ -99,7 +99,7 @@ export default function LeaderboardCard({ period, currentStudent, limit = 10 }: 
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <p className={`font-semibold ${isCurrentUser ? 'text-primary' : ''}`}>
-                        {student.name}
+                        {student.user?.name || 'Unknown Student'}
                       </p>
                       {isCurrentUser && (
                         <Badge variant="secondary" className="text-xs">
@@ -125,9 +125,9 @@ export default function LeaderboardCard({ period, currentStudent, limit = 10 }: 
               {rank <= 3 && (
                 <div className="mt-2 pt-2 border-t border-border/50">
                   <div className="flex items-center gap-2 text-xs">
-                    {student.badges.slice(0, 3).map((badge, i) => (
+                    {student.badges?.slice(0, 3).map((badge, i) => (
                       <span key={i} className="opacity-60">
-                        {badge.icon}
+                        {badge.badge?.icon || '🏆'}
                       </span>
                     ))}
                     {student.badges.length > 3 && (
@@ -151,7 +151,7 @@ export default function LeaderboardCard({ period, currentStudent, limit = 10 }: 
                     #{currentStudent.currentRank}
                   </span>
                   <div>
-                    <p className="font-semibold text-primary">{currentStudent.name}</p>
+                    <p className="font-semibold text-primary">{currentStudent.user?.name || 'Unknown'}</p>
                     <p className="text-sm text-muted-foreground">Your Position</p>
                   </div>
                 </div>

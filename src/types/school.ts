@@ -1,9 +1,7 @@
-// BrainPoint College - Type Definitions
+// Multi-School System - Type Definitions
 
 export type UserRole = 'student' | 'teacher' | 'principal';
-
 export type Department = 'Science' | 'Art' | 'Commercial';
-
 export type StudentClass = 
   | 'JSS1A' | 'JSS1B' | 'JSS1C'
   | 'JSS2A' | 'JSS2B' | 'JSS2C'  
@@ -13,102 +11,154 @@ export type StudentClass =
   | 'SS3A' | 'SS3B' | 'SS3C';
 
 export type BadgeType = 'bronze' | 'silver' | 'gold' | 'diamond';
-
 export type RankingPeriod = 'weekly' | 'monthly' | 'termly';
+export type AssignmentType = 'google_form' | 'edulastic' | 'manual';
+export type PointSource = 'assignment' | 'quiz' | 'behavior' | 'participation' | 'manual';
+
+// Core Entities
+export interface School {
+  id: string;
+  name: string;
+  address?: string;
+  phone?: string;
+  email?: string;
+  logoUrl?: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 export interface User {
   id: string;
   schoolId: string;
+  userId: string; // Login ID (e.g., BP/2024/001)
   name: string;
-  email: string;
+  email?: string;
   role: UserRole;
-  avatar?: string;
+  avatarUrl?: string;
   createdAt: Date;
+  updatedAt: Date;
 }
 
-export interface Student extends User {
-  role: 'student';
+export interface Student {
+  id: string;
+  userId: string;
+  schoolId: string;
   studentClass: StudentClass;
   department: Department;
   totalPoints: number;
   currentRank: number;
-  badges: Badge[];
   weeklyPoints: number;
   monthlyPoints: number;
   termlyPoints: number;
+  createdAt: Date;
+  updatedAt: Date;
+  user?: User;
+  badges?: StudentBadge[];
 }
 
-export interface Teacher extends User {
-  role: 'teacher';
+export interface Teacher {
+  id: string;
+  userId: string;
+  schoolId: string;
   subjects: string[];
   classesAssigned: StudentClass[];
+  createdAt: Date;
+  updatedAt: Date;
+  user?: User;
 }
 
-export interface Principal extends User {
-  role: 'principal';
+export interface Principal {
+  id: string;
+  userId: string;
+  schoolId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  user?: User;
 }
 
 export interface Badge {
   id: string;
-  type: BadgeType;
   name: string;
   description: string;
   icon: string;
+  type: BadgeType;
   pointsRequired: number;
-  dateEarned?: Date;
+  createdAt: Date;
+}
+
+export interface StudentBadge {
+  id: string;
+  studentId: string;
+  badgeId: string;
+  dateEarned: Date;
+  badge?: Badge;
 }
 
 export interface Assignment {
   id: string;
-  title: string;
-  description: string;
+  schoolId: string;
   teacherId: string;
-  teacherName: string;
-  targetClasses: StudentClass[];
+  title: string;
+  description?: string;
+  type: AssignmentType;
+  externalLink?: string;
   pointsReward: number;
   earlySubmissionBonus: number;
-  dueDate: Date;
+  dueDate?: Date;
+  targetClasses: StudentClass[];
   isActive: boolean;
-  type: 'quiz' | 'assignment' | 'practice' | 'holiday_challenge';
-  externalLink?: string; // For Google Forms, Edulastic, etc.
   createdAt: Date;
-}
-
-export interface StudentAssignment {
-  id: string;
-  assignmentId: string;
-  studentId: string;
-  submittedAt?: Date;
-  pointsEarned: number;
-  isEarlySubmission: boolean;
-  status: 'pending' | 'submitted' | 'graded';
-}
-
-export interface PointTransaction {
-  id: string;
-  studentId: string;
-  points: number;
-  source: 'assignment' | 'quiz' | 'behavior' | 'participation' | 'manual';
-  description: string;
-  assignmentId?: string;
-  teacherId?: string;
-  createdAt: Date;
+  updatedAt: Date;
+  teacher?: Teacher;
 }
 
 export interface Announcement {
   id: string;
+  schoolId: string;
+  authorId: string;
   title: string;
   content: string;
-  authorId: string;
-  authorName: string;
-  authorRole: UserRole;
-  targetAudience: 'all' | 'students' | 'teachers' | StudentClass[];
   priority: 'low' | 'medium' | 'high';
+  targetAudience: string;
+  targetClasses: StudentClass[];
   isActive: boolean;
-  createdAt: Date;
   expiresAt?: Date;
+  createdAt: Date;
+  updatedAt: Date;
+  author?: User;
 }
 
+export interface Note {
+  id: string;
+  schoolId: string;
+  teacherId: string;
+  title: string;
+  description?: string;
+  fileUrl?: string;
+  externalLink?: string;
+  targetClasses: StudentClass[];
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  teacher?: Teacher;
+}
+
+export interface PointTransaction {
+  id: string;
+  schoolId: string;
+  studentId: string;
+  teacherId?: string;
+  points: number;
+  reason: string;
+  source: PointSource;
+  assignmentId?: string;
+  createdAt: Date;
+  teacher?: Teacher;
+  student?: Student;
+  assignment?: Assignment;
+}
+
+// UI Types
 export interface LeaderboardEntry {
   rank: number;
   student: Student;
@@ -117,11 +167,15 @@ export interface LeaderboardEntry {
   trend: 'up' | 'down' | 'same' | 'new';
 }
 
-export interface RankingStats {
-  period: RankingPeriod;
+export interface SchoolStats {
   totalStudents: number;
   averagePoints: number;
-  topPerformer: Student;
-  classLeaders: { class: StudentClass; leader: Student }[];
-  departmentLeaders: { department: Department; leader: Student }[];
+  topPerformer?: Student;
+  totalPoints: number;
+}
+
+export interface SchoolComparison {
+  school: School;
+  stats: SchoolStats;
+  rank: number;
 }
