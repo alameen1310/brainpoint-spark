@@ -652,9 +652,9 @@ export const AVAILABLE_BADGES = DUMMY_BADGES;
 
 // Current User Context (switches based on login)
 export const CURRENT_USER = {
-  user: DUMMY_USERS[1], // Mrs. Sarah Johnson (Teacher)
-  student: null,
-  teacher: DUMMY_TEACHERS[0], // Teacher record
+  user: DUMMY_USERS[4], // Emeka Nwankwo (Student)
+  student: DUMMY_STUDENTS[0], // Student record
+  teacher: null,
   principal: null
 };
 

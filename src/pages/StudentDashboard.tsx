@@ -21,6 +21,16 @@ export default function StudentDashboard() {
     navigate('/');
   };
 
+  if (!student) {
+    return (
+      <div className="min-h-screen bg-gradient-hero flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-xl">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-hero">
       {/* Header */}
