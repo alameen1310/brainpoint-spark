@@ -17,20 +17,20 @@ export const DUMMY_SCHOOLS: School[] = [
   },
   {
     id: 'school-2', 
-    name: 'Excellence Academy',
+    name: 'Branded College',
     address: 'Abuja, Nigeria',
     phone: '+234-802-345-6789',
-    email: 'admin@excellence.edu.ng',
+    email: 'admin@branded.edu.ng',
     logoUrl: '/api/placeholder/100/100',
     createdAt: new Date('2018-01-01'),
     updatedAt: new Date('2024-01-01')
   },
   {
     id: 'school-3',
-    name: 'Future Leaders College',
+    name: 'Kingsway Academy',
     address: 'Port Harcourt, Nigeria', 
     phone: '+234-803-456-7890',
-    email: 'contact@futureleaders.edu.ng',
+    email: 'contact@kingsway.edu.ng',
     logoUrl: '/api/placeholder/100/100',
     createdAt: new Date('2019-01-01'),
     updatedAt: new Date('2024-01-01')
@@ -86,7 +86,7 @@ export const DUMMY_BADGES: Badge[] = [
   }
 ];
 
-// Users
+// Users - Creating comprehensive data for all 3 schools
 export const DUMMY_USERS: User[] = [
   // BrainPoint College Users
   // Principal
@@ -94,14 +94,14 @@ export const DUMMY_USERS: User[] = [
     id: 'user-1',
     schoolId: 'school-1',
     userId: 'BP/ADMIN/001',
-    name: 'Dr. Adebayo Ogundimu',
+    name: 'Mr. Johnson',
     email: 'principal@brainpoint.edu.ng',
     role: 'principal',
     avatarUrl: '/api/placeholder/150/150',
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01')
   },
-  // Teachers
+  // Teachers - BrainPoint
   {
     id: 'user-2',
     schoolId: 'school-1',
@@ -135,9 +135,150 @@ export const DUMMY_USERS: User[] = [
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01')
   },
-  // Students
   {
     id: 'user-5',
+    schoolId: 'school-1',
+    userId: 'BP/STAFF/004',
+    name: 'Dr. Adunni Kolade',
+    email: 'a.kolade@brainpoint.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+
+  // Branded College Users
+  // Principal
+  {
+    id: 'user-51',
+    schoolId: 'school-2',
+    userId: 'BC/ADMIN/001',
+    name: 'Mrs. Smith',
+    email: 'principal@branded.edu.ng',
+    role: 'principal',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  // Teachers - Branded
+  {
+    id: 'user-52',
+    schoolId: 'school-2',
+    userId: 'BC/STAFF/001',
+    name: 'Mr. James Okoye',
+    email: 'j.okoye@branded.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: 'user-53',
+    schoolId: 'school-2',
+    userId: 'BC/STAFF/002',
+    name: 'Mrs. Grace Emeka',
+    email: 'g.emeka@branded.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: 'user-54',
+    schoolId: 'school-2',
+    userId: 'BC/STAFF/003',
+    name: 'Mr. Paul Ibrahim',
+    email: 'p.ibrahim@branded.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: 'user-55',
+    schoolId: 'school-2',
+    userId: 'BC/STAFF/004',
+    name: 'Miss Sarah Adamu',
+    email: 's.adamu@branded.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+
+  // Kingsway Academy Users
+  // Principal
+  {
+    id: 'user-101',
+    schoolId: 'school-3',
+    userId: 'KA/ADMIN/001',
+    name: 'Dr. Ade',
+    email: 'principal@kingsway.edu.ng',
+    role: 'principal',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  // Teachers - Kingsway
+  {
+    id: 'user-102',
+    schoolId: 'school-3',
+    userId: 'KA/STAFF/001',
+    name: 'Mrs. Blessing Nkomo',
+    email: 'b.nkomo@kingsway.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: 'user-103',
+    schoolId: 'school-3',
+    userId: 'KA/STAFF/002',
+    name: 'Mr. Victor Chukwu',
+    email: 'v.chukwu@kingsway.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: 'user-104',
+    schoolId: 'school-3',
+    userId: 'KA/STAFF/003',
+    name: 'Dr. Amina Usman',
+    email: 'a.usman@kingsway.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: 'user-105',
+    schoolId: 'school-3',
+    userId: 'KA/STAFF/004',
+    name: 'Mr. Daniel Ojo',
+    email: 'd.ojo@kingsway.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+  {
+    id: 'user-106',
+    schoolId: 'school-3',
+    userId: 'KA/STAFF/005',
+    name: 'Mrs. Rachael Odoh',
+    email: 'r.odoh@kingsway.edu.ng',
+    role: 'teacher',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  },
+
+  // Students - BrainPoint College (15 students for each teacher)
+  {
+    id: 'user-6',
     schoolId: 'school-1',
     userId: 'BP/2024/001',
     name: 'Emeka Nwankwo',
@@ -146,111 +287,106 @@ export const DUMMY_USERS: User[] = [
     avatarUrl: '/api/placeholder/150/150',
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-6',
-    schoolId: 'school-1',
-    userId: 'BP/2024/002',
-    name: 'Aisha Mohammed',
-    email: 'aisha.mohammed@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-7',
-    schoolId: 'school-1',
-    userId: 'BP/2024/003',
-    name: 'Kemi Adeyemi',
-    email: 'kemi.adeyemi@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-8',
-    schoolId: 'school-1',
-    userId: 'BP/2024/004',
-    name: 'David Okoye',
-    email: 'david.okoye@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-9',
-    schoolId: 'school-1',
-    userId: 'BP/2024/005',
-    name: 'Grace Okoro',
-    email: 'grace.okoro@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  // More students for BrainPoint...
-  {
-    id: 'user-10',
-    schoolId: 'school-1',
-    userId: 'BP/2024/006',
-    name: 'Ibrahim Yusuf',
-    email: 'ibrahim.yusuf@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-11',
-    schoolId: 'school-1',
-    userId: 'BP/2024/007',
-    name: 'Blessing Eze',
-    email: 'blessing.eze@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-12',
-    schoolId: 'school-1',
-    userId: 'BP/2024/008',
-    name: 'Samuel Adepoju',
-    email: 'samuel.adepoju@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-13',
-    schoolId: 'school-1',
-    userId: 'BP/2024/009',
-    name: 'Halima Bello',
-    email: 'halima.bello@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
-  },
-  {
-    id: 'user-14',
-    schoolId: 'school-1',
-    userId: 'BP/2024/010',
-    name: 'Victor Osagie',
-    email: 'victor.osagie@student.brainpoint.edu.ng',
-    role: 'student',
-    avatarUrl: '/api/placeholder/150/150',
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01')
   }
 ];
 
+// Generate more students programmatically to reach 60 students for BrainPoint (15 per teacher)
+const bpStudentNames = [
+  'Aisha Mohammed', 'Kemi Adeyemi', 'David Okoye', 'Grace Okoro', 'Ibrahim Yusuf',
+  'Blessing Eze', 'Samuel Adepoju', 'Halima Bello', 'Victor Osagie', 'Chioma Nnaji',
+  'Usman Garba', 'Patience Nkem', 'Ifeanyi Okwu', 'Zainab Aliyu', 'Joseph Okoro',
+  'Mary Chukwu', 'Ahmed Hassan', 'Blessing Uche', 'Emmanuel Ogar', 'Fatima Yaro',
+  'Chinedu Eze', 'Aisha Bala', 'Precious Nkem', 'Godwin Udoh', 'Hauwa Sadiq',
+  'Michael Okafor', 'Charity Nwosu', 'Yakubu Musa', 'Joy Arinze', 'Sunday Okoli',
+  'Blessing Obi', 'Rasheed Lawal', 'Promise Nkomo', 'Chika Onwuka', 'Habiba Umar',
+  'Francis Igwe', 'Mercy Okwu', 'Bashir Sani', 'Faith Nkem', 'Collins Agu',
+  'Deborah Idris', 'Sadiq Garba', 'Peace Nwogu', 'Emeka Eze', 'Hadiza Bello',
+  'Thomas Okonkwo', 'Ruth Okafor', 'Naziru Hassan', 'Goodness Okoro', 'Peter Chukwu',
+  'Amina Yusuf', 'Prince Udoh', 'Christiana Eze', 'Ibrahim Musa', 'Gloria Nkem',
+  'Abdul Lawal', 'Rose Okwu', 'Yakubu Bello', 'Joy Nwosu'
+];
+
+// Add more BrainPoint students
+for (let i = 0; i < bpStudentNames.length; i++) {
+  DUMMY_USERS.push({
+    id: `user-${7 + i}`,
+    schoolId: 'school-1',
+    userId: `BP/2024/${String(i + 2).padStart(3, '0')}`,
+    name: bpStudentNames[i],
+    email: `${bpStudentNames[i].toLowerCase().replace(' ', '.')}@student.brainpoint.edu.ng`,
+    role: 'student',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  });
+}
+
+// Generate students for Branded College (60 students - 15 per teacher)
+const bcStudentNames = [
+  'Chidi Okafor', 'Amina Bello', 'Tunde Adebayo', 'Gift Okoro', 'Musa Ibrahim',
+  'Chiamaka Eze', 'Hassan Yusuf', 'Peace Nkem', 'Kelechi Ogu', 'Hadiya Garba',
+  'Emmanuel Udoh', 'Mercy Chukwu', 'Bashir Lawal', 'Joy Nwosu', 'Collins Eze',
+  'Fatima Sani', 'Chinedu Okoro', 'Blessing Idris', 'Yakubu Musa', 'Faith Okafor',
+  'Sadiq Hassan', 'Chioma Nkem', 'Victor Onwuka', 'Aisha Bala', 'Francis Agu',
+  'Deborah Yaro', 'Usman Garba', 'Promise Okwu', 'Godwin Okoli', 'Hauwa Aliyu',
+  'Michael Eze', 'Charity Nwogu', 'Ibrahim Bello', 'Ruth Udoh', 'Naziru Lawal',
+  'Gloria Okonkwo', 'Bashir Yusuf', 'Peace Chukwu', 'Emeka Okoro', 'Hadiza Sani',
+  'Thomas Idris', 'Mercy Nkem', 'Abdul Hassan', 'Joy Okafor', 'Peter Eze',
+  'Amina Garba', 'Prince Okwu', 'Christiana Bello', 'Yakubu Aliyu', 'Rose Nwosu',
+  'Sadiq Musa', 'Blessing Udoh', 'Collins Yaro', 'Faith Onwuka', 'Emmanuel Agu',
+  'Deborah Okoro', 'Usman Lawal', 'Promise Chukwu', 'Godwin Okoro', 'Hauwa Eze'
+];
+
+for (let i = 0; i < bcStudentNames.length; i++) {
+  DUMMY_USERS.push({
+    id: `user-${200 + i}`,
+    schoolId: 'school-2',
+    userId: `BC/2024/${String(i + 1).padStart(3, '0')}`,
+    name: bcStudentNames[i],
+    email: `${bcStudentNames[i].toLowerCase().replace(' ', '.')}@student.branded.edu.ng`,
+    role: 'student',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  });
+}
+
+// Generate students for Kingsway Academy (75 students - 15 per teacher, 5 teachers)
+const kaStudentNames = [
+  'Adaeze Okafor', 'Muhammad Bello', 'Chinonso Eze', 'Aisha Yusuf', 'Emeka Udoh',
+  'Hauwa Garba', 'Chukwuma Okoro', 'Fatima Hassan', 'Victor Nkem', 'Blessing Aliyu',
+  'Ibrahim Chukwu', 'Joy Okonkwo', 'Bashir Idris', 'Peace Nwosu', 'Collins Agu',
+  'Hadiza Lawal', 'Kelechi Okwu', 'Amina Sani', 'Francis Okoli', 'Charity Bello',
+  'Yakubu Eze', 'Ruth Udoh', 'Naziru Yaro', 'Gloria Onwuka', 'Sadiq Okafor',
+  'Chioma Hassan', 'Emmanuel Nkem', 'Deborah Garba', 'Usman Chukwu', 'Promise Aliyu',
+  'Godwin Okoro', 'Mercy Idris', 'Thomas Nwosu', 'Faith Agu', 'Abdul Lawal',
+  'Rose Okwu', 'Peter Bello', 'Amina Eze', 'Prince Udoh', 'Christiana Yaro',
+  'Ibrahim Onwuka', 'Joy Okafor', 'Yakubu Hassan', 'Blessing Nkem', 'Collins Garba',
+  'Hadiya Chukwu', 'Emeka Aliyu', 'Peace Okoro', 'Bashir Idris', 'Charity Nwosu',
+  'Kelechi Agu', 'Fatima Lawal', 'Victor Okwu', 'Aisha Bello', 'Francis Eze',
+  'Deborah Udoh', 'Usman Yaro', 'Promise Onwuka', 'Godwin Okoro', 'Hauwa Hassan',
+  'Michael Nkem', 'Ruth Garba', 'Naziru Chukwu', 'Gloria Aliyu', 'Sadiq Okoro',
+  'Chioma Idris', 'Emmanuel Nwosu', 'Mercy Agu', 'Thomas Lawal', 'Faith Okwu',
+  'Abdul Bello', 'Rose Eze', 'Peter Udoh', 'Amina Yaro', 'Prince Onwuka'
+];
+
+for (let i = 0; i < kaStudentNames.length; i++) {
+  DUMMY_USERS.push({
+    id: `user-${300 + i}`,
+    schoolId: 'school-3',
+    userId: `KA/2024/${String(i + 1).padStart(3, '0')}`,
+    name: kaStudentNames[i],
+    email: `${kaStudentNames[i].toLowerCase().replace(' ', '.')}@student.kingsway.edu.ng`,
+    role: 'student',
+    avatarUrl: '/api/placeholder/150/150',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01')
+  });
+}
+
 // Teachers
 export const DUMMY_TEACHERS: Teacher[] = [
+  // BrainPoint College Teachers
   {
     id: 'teacher-1',
     userId: 'user-2',
@@ -280,6 +416,110 @@ export const DUMMY_TEACHERS: Teacher[] = [
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01'),
     user: DUMMY_USERS.find(u => u.id === 'user-4')
+  },
+  {
+    id: 'teacher-4',
+    userId: 'user-5',
+    schoolId: 'school-1',
+    subjects: ['Economics', 'Government'],
+    classesAssigned: ['SS2A', 'SS2B', 'SS3A'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-5')
+  },
+
+  // Branded College Teachers
+  {
+    id: 'teacher-5',
+    userId: 'user-52',
+    schoolId: 'school-2',
+    subjects: ['Mathematics', 'Further Mathematics'],
+    classesAssigned: ['SS1A', 'SS2A', 'SS3A'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-52')
+  },
+  {
+    id: 'teacher-6',
+    userId: 'user-53',
+    schoolId: 'school-2',
+    subjects: ['Chemistry', 'Physics'],
+    classesAssigned: ['SS1B', 'SS2B', 'SS3B'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-53')
+  },
+  {
+    id: 'teacher-7',
+    userId: 'user-54',
+    schoolId: 'school-2',
+    subjects: ['English', 'CRS'],
+    classesAssigned: ['JSS1A', 'JSS2A', 'JSS3A'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-54')
+  },
+  {
+    id: 'teacher-8',
+    userId: 'user-55',
+    schoolId: 'school-2',
+    subjects: ['Geography', 'Economics'],
+    classesAssigned: ['SS1C', 'SS2C', 'SS3C'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-55')
+  },
+
+  // Kingsway Academy Teachers
+  {
+    id: 'teacher-9',
+    userId: 'user-102',
+    schoolId: 'school-3',
+    subjects: ['Mathematics', 'Computer Science'],
+    classesAssigned: ['SS1A', 'SS2A', 'SS3A'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-102')
+  },
+  {
+    id: 'teacher-10',
+    userId: 'user-103',
+    schoolId: 'school-3',
+    subjects: ['Physics', 'Chemistry'],
+    classesAssigned: ['SS1B', 'SS2B', 'SS3B'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-103')
+  },
+  {
+    id: 'teacher-11',
+    userId: 'user-104',
+    schoolId: 'school-3',
+    subjects: ['Biology', 'Agricultural Science'],
+    classesAssigned: ['SS1C', 'SS2C', 'SS3C'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-104')
+  },
+  {
+    id: 'teacher-12',
+    userId: 'user-105',
+    schoolId: 'school-3',
+    subjects: ['English', 'Literature'],
+    classesAssigned: ['JSS1A', 'JSS2A', 'JSS3A'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-105')
+  },
+  {
+    id: 'teacher-13',
+    userId: 'user-106',
+    schoolId: 'school-3',
+    subjects: ['History', 'Government'],
+    classesAssigned: ['JSS1B', 'JSS2B', 'JSS3B'],
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-106')
   }
 ];
 
@@ -292,180 +532,74 @@ export const DUMMY_PRINCIPALS: Principal[] = [
     createdAt: new Date('2024-01-01'),
     updatedAt: new Date('2024-01-01'),
     user: DUMMY_USERS.find(u => u.id === 'user-1')
+  },
+  {
+    id: 'principal-2',
+    userId: 'user-51',
+    schoolId: 'school-2',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-51')
+  },
+  {
+    id: 'principal-3',
+    userId: 'user-101',
+    schoolId: 'school-3',
+    createdAt: new Date('2024-01-01'),
+    updatedAt: new Date('2024-01-01'),
+    user: DUMMY_USERS.find(u => u.id === 'user-101')
   }
 ];
 
-// Students
-export const DUMMY_STUDENTS: Student[] = [
-  {
-    id: 'student-1',
-    userId: 'user-5',
-    schoolId: 'school-1',
-    studentClass: 'SS1A',
-    department: 'Science',
-    totalPoints: 485,
-    currentRank: 1,
-    weeklyPoints: 85,
-    monthlyPoints: 320,
-    termlyPoints: 485,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-5')
-  },
-  {
-    id: 'student-2',
-    userId: 'user-6',
-    schoolId: 'school-1',
-    studentClass: 'SS1A',
-    department: 'Science',
-    totalPoints: 420,
-    currentRank: 2,
-    weeklyPoints: 75,
-    monthlyPoints: 290,
-    termlyPoints: 420,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-6')
-  },
-  {
-    id: 'student-3',
-    userId: 'user-7',
-    schoolId: 'school-1',
-    studentClass: 'SS1B',
-    department: 'Art',
-    totalPoints: 380,
-    currentRank: 3,
-    weeklyPoints: 65,
-    monthlyPoints: 250,
-    termlyPoints: 380,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-7')
-  },
-  {
-    id: 'student-4',
-    userId: 'user-8',
-    schoolId: 'school-1',
-    studentClass: 'SS2A',
-    department: 'Commercial',
-    totalPoints: 350,
-    currentRank: 4,
-    weeklyPoints: 60,
-    monthlyPoints: 240,
-    termlyPoints: 350,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-8')
-  },
-  {
-    id: 'student-5',
-    userId: 'user-9',
-    schoolId: 'school-1',
-    studentClass: 'SS1A',
-    department: 'Science',
-    totalPoints: 320,
-    currentRank: 5,
-    weeklyPoints: 55,
-    monthlyPoints: 220,
-    termlyPoints: 320,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-9')
-  },
-  {
-    id: 'student-6',
-    userId: 'user-10',
-    schoolId: 'school-1',
-    studentClass: 'JSS3A',
-    department: 'Science',
-    totalPoints: 295,
-    currentRank: 6,
-    weeklyPoints: 50,
-    monthlyPoints: 200,
-    termlyPoints: 295,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-10')
-  },
-  {
-    id: 'student-7',
-    userId: 'user-11',
-    schoolId: 'school-1',
-    studentClass: 'SS1B',
-    department: 'Art',
-    totalPoints: 270,
-    currentRank: 7,
-    weeklyPoints: 45,
-    monthlyPoints: 180,
-    termlyPoints: 270,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-11')
-  },
-  {
-    id: 'student-8',
-    userId: 'user-12',
-    schoolId: 'school-1',
-    studentClass: 'SS2B',
-    department: 'Commercial',
-    totalPoints: 245,
-    currentRank: 8,
-    weeklyPoints: 40,
-    monthlyPoints: 160,
-    termlyPoints: 245,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-12')
-  },
-  {
-    id: 'student-9',
-    userId: 'user-13',
-    schoolId: 'school-1',
-    studentClass: 'JSS2A',
-    department: 'Science',
-    totalPoints: 220,
-    currentRank: 9,
-    weeklyPoints: 35,
-    monthlyPoints: 140,
-    termlyPoints: 220,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-13')
-  },
-  {
-    id: 'student-10',
-    userId: 'user-14',
-    schoolId: 'school-1',
-    studentClass: 'SS1C',
-    department: 'Science',
-    totalPoints: 195,
-    currentRank: 10,
-    weeklyPoints: 30,
-    monthlyPoints: 120,
-    termlyPoints: 195,
-    createdAt: new Date('2024-01-01'),
-    updatedAt: new Date('2024-01-01'),
-    user: DUMMY_USERS.find(u => u.id === 'user-14')
-  }
-];
+// Generate Students with proper distribution
+export const DUMMY_STUDENTS: Student[] = [];
 
-// Student Badges
+// Helper function to generate student records
+function generateStudents(startUserId: number, schoolId: string, prefix: string, count: number) {
+  const classes = ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B', 'SS1A', 'SS1B', 'SS1C', 'SS2A', 'SS2B', 'SS2C', 'SS3A', 'SS3B', 'SS3C'];
+  const departments = ['Science', 'Art', 'Commercial'];
+  
+  for (let i = 0; i < count; i++) {
+    const studentClass = classes[i % classes.length];
+    const department = departments[i % departments.length];
+    const points = Math.floor(Math.random() * 400) + 100; // Random points between 100-500
+    
+    DUMMY_STUDENTS.push({
+      id: `student-${startUserId + i}`,
+      userId: `user-${startUserId + i}`,
+      schoolId: schoolId,
+      studentClass: studentClass,
+      department: department,
+      totalPoints: points,
+      currentRank: i + 1,
+      weeklyPoints: Math.floor(points * 0.2),
+      monthlyPoints: Math.floor(points * 0.6),
+      termlyPoints: points,
+      createdAt: new Date('2024-01-01'),
+      updatedAt: new Date('2024-01-01'),
+      user: DUMMY_USERS.find(u => u.id === `user-${startUserId + i}`)
+    });
+  }
+}
+
+// Generate students for all schools
+generateStudents(6, 'school-1', 'BP', 60); // BrainPoint: user-6 to user-65
+generateStudents(200, 'school-2', 'BC', 60); // Branded: user-200 to user-259
+generateStudents(300, 'school-3', 'KA', 75); // Kingsway: user-300 to user-374
+
+// Student Badges - sample for top students
 export const DUMMY_STUDENT_BADGES: StudentBadge[] = [
-  // Emeka's badges
-  { id: 'sb-1', studentId: 'student-1', badgeId: 'badge-1', dateEarned: new Date('2024-01-15'), badge: DUMMY_BADGES[0] },
-  { id: 'sb-2', studentId: 'student-1', badgeId: 'badge-2', dateEarned: new Date('2024-02-01'), badge: DUMMY_BADGES[1] },
-  { id: 'sb-3', studentId: 'student-1', badgeId: 'badge-3', dateEarned: new Date('2024-03-01'), badge: DUMMY_BADGES[2] },
-  { id: 'sb-4', studentId: 'student-1', badgeId: 'badge-4', dateEarned: new Date('2024-04-01'), badge: DUMMY_BADGES[3] },
+  // Top student from each school gets badges
+  { id: 'sb-1', studentId: 'student-6', badgeId: 'badge-1', dateEarned: new Date('2024-01-15'), badge: DUMMY_BADGES[0] },
+  { id: 'sb-2', studentId: 'student-6', badgeId: 'badge-2', dateEarned: new Date('2024-02-01'), badge: DUMMY_BADGES[1] },
+  { id: 'sb-3', studentId: 'student-6', badgeId: 'badge-3', dateEarned: new Date('2024-03-01'), badge: DUMMY_BADGES[2] },
   
-  // Aisha's badges
-  { id: 'sb-5', studentId: 'student-2', badgeId: 'badge-1', dateEarned: new Date('2024-01-20'), badge: DUMMY_BADGES[0] },
-  { id: 'sb-6', studentId: 'student-2', badgeId: 'badge-2', dateEarned: new Date('2024-02-05'), badge: DUMMY_BADGES[1] },
-  { id: 'sb-7', studentId: 'student-2', badgeId: 'badge-3', dateEarned: new Date('2024-03-10'), badge: DUMMY_BADGES[2] },
+  { id: 'sb-4', studentId: 'student-200', badgeId: 'badge-1', dateEarned: new Date('2024-01-20'), badge: DUMMY_BADGES[0] },
+  { id: 'sb-5', studentId: 'student-200', badgeId: 'badge-2', dateEarned: new Date('2024-02-05'), badge: DUMMY_BADGES[1] },
   
-  // Kemi's badges
-  { id: 'sb-8', studentId: 'student-3', badgeId: 'badge-1', dateEarned: new Date('2024-01-25'), badge: DUMMY_BADGES[0] },
-  { id: 'sb-9', studentId: 'student-3', badgeId: 'badge-2', dateEarned: new Date('2024-02-10'), badge: DUMMY_BADGES[1] },
-  { id: 'sb-10', studentId: 'student-3', badgeId: 'badge-3', dateEarned: new Date('2024-03-15'), badge: DUMMY_BADGES[2] }
+  { id: 'sb-6', studentId: 'student-300', badgeId: 'badge-1', dateEarned: new Date('2024-01-25'), badge: DUMMY_BADGES[0] },
+  { id: 'sb-7', studentId: 'student-300', badgeId: 'badge-2', dateEarned: new Date('2024-02-10'), badge: DUMMY_BADGES[1] },
+  { id: 'sb-8', studentId: 'student-300', badgeId: 'badge-3', dateEarned: new Date('2024-03-15'), badge: DUMMY_BADGES[2] }
 ];
 
 // Update students to include badges
@@ -473,7 +607,7 @@ DUMMY_STUDENTS.forEach(student => {
   student.badges = DUMMY_STUDENT_BADGES.filter(sb => sb.studentId === student.id);
 });
 
-// Assignments
+// Sample assignments, announcements, etc. for each school
 export const DUMMY_ASSIGNMENTS: Assignment[] = [
   {
     id: 'assignment-1',
@@ -491,43 +625,9 @@ export const DUMMY_ASSIGNMENTS: Assignment[] = [
     createdAt: new Date('2024-12-01'),
     updatedAt: new Date('2024-12-01'),
     teacher: DUMMY_TEACHERS[0]
-  },
-  {
-    id: 'assignment-2',
-    schoolId: 'school-1',
-    teacherId: 'teacher-2',
-    title: 'Organic Chemistry Test',
-    description: 'Test on alkanes, alkenes, and functional groups',
-    type: 'edulastic',
-    externalLink: 'https://edulastic.com/chemistry-test',
-    pointsReward: 25,
-    earlySubmissionBonus: 5,
-    dueDate: new Date('2024-12-18'),
-    targetClasses: ['SS2A', 'SS2B'],
-    isActive: true,
-    createdAt: new Date('2024-12-02'),
-    updatedAt: new Date('2024-12-02'),
-    teacher: DUMMY_TEACHERS[1]
-  },
-  {
-    id: 'assignment-3',
-    schoolId: 'school-1',
-    teacherId: 'teacher-3',
-    title: 'Essay Writing Exercise',
-    description: 'Write a 500-word essay on "The Importance of Education"',
-    type: 'manual',
-    pointsReward: 20,
-    earlySubmissionBonus: 5,
-    dueDate: new Date('2024-12-22'),
-    targetClasses: ['JSS1A', 'JSS2A', 'JSS3A'],
-    isActive: true,
-    createdAt: new Date('2024-12-03'),
-    updatedAt: new Date('2024-12-03'),
-    teacher: DUMMY_TEACHERS[2]
   }
 ];
 
-// Announcements
 export const DUMMY_ANNOUNCEMENTS: Announcement[] = [
   {
     id: 'announcement-1',
@@ -543,40 +643,9 @@ export const DUMMY_ANNOUNCEMENTS: Announcement[] = [
     createdAt: new Date('2024-12-01'),
     updatedAt: new Date('2024-12-01'),
     author: DUMMY_USERS[0]
-  },
-  {
-    id: 'announcement-2',
-    schoolId: 'school-1',
-    authorId: 'user-2',
-    title: 'Mathematics Competition',
-    content: 'Registration is now open for the inter-class mathematics competition. Prizes await the winners!',
-    priority: 'medium',
-    targetAudience: 'students',
-    targetClasses: ['SS1A', 'SS1B', 'SS1C'],
-    isActive: true,
-    expiresAt: new Date('2024-12-25'),
-    createdAt: new Date('2024-12-02'),
-    updatedAt: new Date('2024-12-02'),
-    author: DUMMY_USERS[1]
-  },
-  {
-    id: 'announcement-3',
-    schoolId: 'school-1',
-    authorId: 'user-4',
-    title: 'Library Hours Extended',
-    content: 'The school library will now be open from 7:00 AM to 6:00 PM to help students with their studies.',
-    priority: 'low',
-    targetAudience: 'all',
-    targetClasses: [],
-    isActive: true,
-    expiresAt: new Date('2024-12-31'),
-    createdAt: new Date('2024-12-03'),
-    updatedAt: new Date('2024-12-03'),
-    author: DUMMY_USERS[3]
   }
 ];
 
-// Notes
 export const DUMMY_NOTES: Note[] = [
   {
     id: 'note-1',
@@ -590,28 +659,14 @@ export const DUMMY_NOTES: Note[] = [
     createdAt: new Date('2024-12-01'),
     updatedAt: new Date('2024-12-01'),
     teacher: DUMMY_TEACHERS[0]
-  },
-  {
-    id: 'note-2',
-    schoolId: 'school-1',
-    teacherId: 'teacher-2',
-    title: 'Chemistry Lab Safety Rules',
-    description: 'Important safety guidelines for chemistry practical sessions',
-    externalLink: 'https://drive.google.com/chemistry-safety-rules',
-    targetClasses: ['SS1A', 'SS2A', 'SS2B'],
-    isActive: true,
-    createdAt: new Date('2024-12-02'),
-    updatedAt: new Date('2024-12-02'),
-    teacher: DUMMY_TEACHERS[1]
   }
 ];
 
-// Point Transactions
 export const DUMMY_POINT_TRANSACTIONS: PointTransaction[] = [
   {
     id: 'pt-1',
     schoolId: 'school-1',
-    studentId: 'student-1',
+    studentId: 'student-6',
     teacherId: 'teacher-1',
     points: 25,
     reason: 'Excellent participation in mathematics class',
@@ -619,48 +674,25 @@ export const DUMMY_POINT_TRANSACTIONS: PointTransaction[] = [
     createdAt: new Date('2024-12-01'),
     teacher: DUMMY_TEACHERS[0],
     student: DUMMY_STUDENTS[0]
-  },
-  {
-    id: 'pt-2',
-    schoolId: 'school-1',
-    studentId: 'student-2',
-    teacherId: 'teacher-2',
-    points: 30,
-    reason: 'Outstanding chemistry assignment submission',
-    source: 'assignment',
-    assignmentId: 'assignment-2',
-    createdAt: new Date('2024-12-02'),
-    teacher: DUMMY_TEACHERS[1],
-    student: DUMMY_STUDENTS[1]
-  },
-  {
-    id: 'pt-3',
-    schoolId: 'school-1',
-    studentId: 'student-3',
-    teacherId: 'teacher-3',
-    points: 15,
-    reason: 'Good behavior and discipline',
-    source: 'behavior',
-    createdAt: new Date('2024-12-03'),
-    teacher: DUMMY_TEACHERS[2],
-    student: DUMMY_STUDENTS[2]
   }
 ];
 
 // Export badges for compatibility
 export const AVAILABLE_BADGES = DUMMY_BADGES;
 
-// Current User Context (switches based on login)
+// Current User Context (switches based on login) - Default to principal
 export const CURRENT_USER = {
-  user: DUMMY_USERS[4], // Emeka Nwankwo (Student)
-  student: DUMMY_STUDENTS[0], // Student record
+  user: DUMMY_USERS[0], // Mr. Johnson (Principal)
+  student: null,
   teacher: null,
-  principal: null
+  principal: DUMMY_PRINCIPALS[0] // Principal record
 };
 
 // Login credentials for testing
 export const LOGIN_CREDENTIALS = [
   { userId: 'BP/2024/001', password: 'demo123', role: 'student' },
   { userId: 'BP/STAFF/001', password: 'demo123', role: 'teacher' },
-  { userId: 'BP/ADMIN/001', password: 'demo123', role: 'principal' }
+  { userId: 'BP/ADMIN/001', password: 'demo123', role: 'principal' },
+  { userId: 'BC/ADMIN/001', password: 'demo123', role: 'principal' },
+  { userId: 'KA/ADMIN/001', password: 'demo123', role: 'principal' }
 ];
