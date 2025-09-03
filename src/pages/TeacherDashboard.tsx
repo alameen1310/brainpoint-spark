@@ -16,6 +16,16 @@ export default function TeacherDashboard() {
     navigate('/');
   };
 
+  if (!teacher) {
+    return (
+      <div className="min-h-screen bg-gradient-hero flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-xl">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   // Get students in teacher's classes
   const teacherStudents = DUMMY_STUDENTS.filter(student =>
     teacher.classesAssigned.includes(student.studentClass)

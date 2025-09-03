@@ -650,12 +650,12 @@ export const DUMMY_POINT_TRANSACTIONS: PointTransaction[] = [
 // Export badges for compatibility
 export const AVAILABLE_BADGES = DUMMY_BADGES;
 
-// Current User Context
+// Current User Context (switches based on login)
 export const CURRENT_USER = {
-  user: DUMMY_USERS[0], // Dr. Adebayo (Principal)
+  user: DUMMY_USERS[1], // Mrs. Sarah Johnson (Teacher)
   student: null,
-  teacher: null,
-  principal: DUMMY_PRINCIPALS[0] // Principal record
+  teacher: DUMMY_TEACHERS[0], // Teacher record
+  principal: null
 };
 
 // Login credentials for testing
