@@ -652,10 +652,10 @@ export const AVAILABLE_BADGES = DUMMY_BADGES;
 
 // Current User Context
 export const CURRENT_USER = {
-  user: DUMMY_USERS[4], // Emeka Nwankwo
-  student: DUMMY_STUDENTS[0], // Emeka's student record
+  user: DUMMY_USERS[0], // Dr. Adebayo (Principal)
+  student: null,
   teacher: null,
-  principal: null
+  principal: DUMMY_PRINCIPALS[0] // Principal record
 };
 
 // Login credentials for testing

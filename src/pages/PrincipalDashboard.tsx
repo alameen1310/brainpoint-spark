@@ -16,6 +16,16 @@ export default function PrincipalDashboard() {
     navigate('/');
   };
 
+  if (!principal) {
+    return (
+      <div className="min-h-screen bg-gradient-hero flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-xl">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   // Calculate school statistics
   const totalStudents = DUMMY_STUDENTS.length;
   const totalTeachers = DUMMY_TEACHERS.length;
