@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User, Student, Teacher, Principal } from '@/types/school';
+import { User, Student, Teacher, Principal, UserRole, StudentClass, Department } from '@/types/school';
 import { supabase } from '@/integrations/supabase/client';
 
 interface AuthUser {
@@ -64,7 +64,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         userId: userData.user_id,
         name: userData.name,
         email: userData.email,
-        role: userData.role,
+        role: userData.role as UserRole,
         avatarUrl: userData.avatar_url,
         createdAt: new Date(userData.created_at),
         updatedAt: new Date(userData.updated_at)
@@ -91,8 +91,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             id: studentData.id,
             userId: studentData.user_id,
             schoolId: studentData.school_id,
-            studentClass: studentData.student_class,
-            department: studentData.department,
+            studentClass: studentData.student_class as StudentClass,
+            department: studentData.department as Department,
             totalPoints: studentData.total_points,
             currentRank: studentData.current_rank,
             weeklyPoints: studentData.weekly_points,
@@ -123,7 +123,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             userId: teacherData.user_id,
             schoolId: teacherData.school_id,
             subjects: teacherData.subjects,
-            classesAssigned: teacherData.classes_assigned,
+            classesAssigned: teacherData.classes_assigned as StudentClass[],
             createdAt: new Date(teacherData.created_at),
             updatedAt: new Date(teacherData.updated_at),
             user

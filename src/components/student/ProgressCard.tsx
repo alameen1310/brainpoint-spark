@@ -143,9 +143,9 @@ export default function ProgressCard({ student }: ProgressCardProps) {
                   key={index}
                   className="p-3 rounded-lg bg-surface border text-center hover-lift cursor-pointer"
                 >
-                  <div className="text-2xl mb-1">{badge.icon}</div>
-                  <p className="font-medium text-sm">{badge.name}</p>
-                  <p className="text-xs text-muted-foreground">{badge.description}</p>
+                  <div className="text-2xl mb-1">{badge.badge?.icon || '🏆'}</div>
+                  <p className="font-medium text-sm">{badge.badge?.name || 'Badge'}</p>
+                  <p className="text-xs text-muted-foreground">{badge.badge?.description || 'Achievement unlocked'}</p>
                   {badge.dateEarned && (
                     <p className="text-xs text-muted-foreground mt-1">
                       Earned {badge.dateEarned.toLocaleDateString()}

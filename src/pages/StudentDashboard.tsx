@@ -39,7 +39,7 @@ export default function StudentDashboard() {
             
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="font-semibold">{student.name}</p>
+                <p className="font-semibold">{student.user?.name || 'Student'}</p>
                 <p className="text-sm text-muted-foreground">
                   {student.studentClass} • {student.department}
                 </p>
@@ -58,7 +58,7 @@ export default function StudentDashboard() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 animate-fade-in">
             <h2 className="text-4xl font-bold">
-              Welcome back, {student.name.split(' ')[0]}! 👋
+              Welcome back, {student.user?.name?.split(' ')[0] || 'Student'}! 👋
             </h2>
             <p className="text-xl text-muted-foreground">
               You're currently ranked #{student.currentRank} with {student.totalPoints} total points
@@ -84,7 +84,7 @@ export default function StudentDashboard() {
               
               <Card className="hover-lift shadow-card">
                 <CardContent className="p-4 text-center">
-                  <div className="text-2xl mb-2">{student.badges[0]?.icon || '🏆'}</div>
+                  <div className="text-2xl mb-2">{student.badges?.[0]?.badge?.icon || '🏆'}</div>
                   <div className="text-2xl font-bold text-accent">{student.badges.length}</div>
                   <p className="text-sm text-muted-foreground">Badges Earned</p>
                 </CardContent>

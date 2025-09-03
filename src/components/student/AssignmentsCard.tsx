@@ -17,14 +17,12 @@ export default function AssignmentsCard({ student }: AssignmentsCardProps) {
 
   const getAssignmentTypeIcon = (type: Assignment['type']) => {
     switch (type) {
-      case 'quiz':
+      case 'google_form':
         return <Star className="w-4 h-4" />;
-      case 'assignment':
+      case 'edulastic':
         return <BookOpen className="w-4 h-4" />;
-      case 'practice':
+      case 'manual':
         return <BookOpen className="w-4 h-4" />;
-      case 'holiday_challenge':
-        return <Star className="w-4 h-4" />;
       default:
         return <BookOpen className="w-4 h-4" />;
     }
@@ -32,14 +30,12 @@ export default function AssignmentsCard({ student }: AssignmentsCardProps) {
 
   const getTypeColor = (type: Assignment['type']) => {
     switch (type) {
-      case 'quiz':
+      case 'google_form':
         return 'bg-accent/10 text-accent';
-      case 'assignment':
+      case 'edulastic':
         return 'bg-primary/10 text-primary';
-      case 'practice':
+      case 'manual':
         return 'bg-secondary/10 text-secondary';
-      case 'holiday_challenge':
-        return 'bg-gradient-accent text-white';
       default:
         return 'bg-muted';
     }
@@ -89,9 +85,9 @@ export default function AssignmentsCard({ student }: AssignmentsCardProps) {
                             {assignment.type.replace('_', ' ')}
                           </span>
                         </Badge>
-                        {assignment.type === 'holiday_challenge' && (
+                        {assignment.type === 'google_form' && (
                           <Badge variant="outline" className="text-xs">
-                            🎯 Special
+                            📝 Form
                           </Badge>
                         )}
                       </div>
@@ -100,7 +96,7 @@ export default function AssignmentsCard({ student }: AssignmentsCardProps) {
                         {assignment.description}
                       </p>
                       <p className="text-xs text-muted-foreground">
-                        By {assignment.teacherName}
+                        By {assignment.teacher?.user?.name || 'Teacher'}
                       </p>
                     </div>
                     

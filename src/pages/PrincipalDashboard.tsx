@@ -53,7 +53,7 @@ export default function PrincipalDashboard() {
             
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="font-semibold">{principal.name}</p>
+                <p className="font-semibold">{principal.user?.name || 'Principal'}</p>
                 <p className="text-sm text-muted-foreground">School Principal</p>
               </div>
               <Button variant="outline" onClick={handleLogout}>
@@ -70,7 +70,7 @@ export default function PrincipalDashboard() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 animate-fade-in">
             <h2 className="text-4xl font-bold">
-              Welcome, {principal.name.split(' ')[1]}! 👨‍💼
+              Welcome, {principal.user?.name?.split(' ')[1] || 'Principal'}! 👨‍💼
             </h2>
             <p className="text-xl text-muted-foreground">
               Overseeing excellence across {totalStudents} students and {totalTeachers} teachers
@@ -152,7 +152,7 @@ export default function PrincipalDashboard() {
                               {index + 1}
                             </span>
                             <div>
-                              <p className="font-semibold">{student.name}</p>
+                              <p className="font-semibold">{student.user?.name || 'Student'}</p>
                               <p className="text-sm text-muted-foreground">
                                 {student.studentClass} • {student.department}
                               </p>
@@ -194,7 +194,7 @@ export default function PrincipalDashboard() {
                             </div>
                             <div>
                               <p className="text-muted-foreground">Top Performer</p>
-                              <p className="font-semibold">{deptStudents[0]?.name.split(' ')[0]}</p>
+                              <p className="font-semibold">{deptStudents[0]?.user?.name?.split(' ')[0] || 'N/A'}</p>
                             </div>
                           </div>
                         </div>
@@ -228,7 +228,7 @@ export default function PrincipalDashboard() {
                             {index + 1}
                           </span>
                           <div>
-                            <p className="font-semibold">{student.name}</p>
+                            <p className="font-semibold">{student.user?.name || 'Student'}</p>
                             <p className="text-sm text-muted-foreground">
                               {student.studentClass} • {student.department}
                             </p>
@@ -271,7 +271,7 @@ export default function PrincipalDashboard() {
                             <div key={student.id} className="p-3 rounded-lg bg-surface hover-lift">
                               <div className="flex items-center justify-between">
                                 <div>
-                                  <p className="font-semibold">{student.name}</p>
+                                  <p className="font-semibold">{student.user?.name || 'Student'}</p>
                                   <p className="text-sm text-muted-foreground">{student.department}</p>
                                 </div>
                                 <div className="text-right">
@@ -294,7 +294,7 @@ export default function PrincipalDashboard() {
                 {DUMMY_TEACHERS.map((teacher) => (
                   <Card key={teacher.id} className="shadow-card hover-lift">
                     <CardHeader>
-                      <CardTitle>{teacher.name}</CardTitle>
+                      <CardTitle>{teacher.user?.name || 'Teacher'}</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">

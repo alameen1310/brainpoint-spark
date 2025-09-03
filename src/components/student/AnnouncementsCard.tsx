@@ -63,8 +63,8 @@ export default function AnnouncementsCard({ student }: AnnouncementsCardProps) {
     return date.toLocaleDateString();
   };
 
-  const getRoleIcon = (role: Announcement['authorRole']) => {
-    switch (role) {
+  const getRoleIcon = (authorRole?: string) => {
+    switch (authorRole) {
       case 'principal':
         return '👨‍💼';
       case 'teacher':
@@ -105,8 +105,8 @@ export default function AnnouncementsCard({ student }: AnnouncementsCardProps) {
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <span>{getRoleIcon(announcement.authorRole)}</span>
-                        <span>{announcement.authorName}</span>
+                        <span>{getRoleIcon(announcement.author?.role)}</span>
+                        <span>{announcement.author?.name || 'Admin'}</span>
                         <span>•</span>
                         <div className="flex items-center gap-1">
                           <Calendar className="w-3 h-3" />

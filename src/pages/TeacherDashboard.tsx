@@ -44,7 +44,7 @@ export default function TeacherDashboard() {
             
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="font-semibold">{teacher.name}</p>
+                <p className="font-semibold">{teacher.user?.name || 'Teacher'}</p>
                 <p className="text-sm text-muted-foreground">
                   {teacher.subjects.join(' • ')}
                 </p>
@@ -63,7 +63,7 @@ export default function TeacherDashboard() {
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 animate-fade-in">
             <h2 className="text-4xl font-bold">
-              Welcome, {teacher.name.split(' ')[1]}! 👩‍🏫
+              Welcome, {teacher.user?.name?.split(' ')[1] || 'Teacher'}! 👩‍🏫
             </h2>
             <p className="text-xl text-muted-foreground">
               Managing {teacher.classesAssigned.length} classes • {teacherStudents.length} students
@@ -139,7 +139,7 @@ export default function TeacherDashboard() {
                               {index + 1}
                             </span>
                             <div>
-                              <p className="font-semibold">{student.name}</p>
+                              <p className="font-semibold">{student.user?.name || 'Student'}</p>
                               <p className="text-sm text-muted-foreground">{student.studentClass}</p>
                             </div>
                           </div>
@@ -237,7 +237,7 @@ export default function TeacherDashboard() {
                             <div key={student.id} className="p-3 rounded-lg bg-surface hover-lift">
                               <div className="flex items-center justify-between">
                                 <div>
-                                  <p className="font-semibold">{student.name}</p>
+                                  <p className="font-semibold">{student.user?.name || 'Student'}</p>
                                   <p className="text-sm text-muted-foreground">{student.department}</p>
                                 </div>
                                 <div className="text-right">
