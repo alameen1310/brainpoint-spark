@@ -1,6 +1,6 @@
 import { 
   School, User, Student, Teacher, Principal, Badge, StudentBadge, 
-  Assignment, Announcement, Note, PointTransaction
+  Assignment, Announcement, Note, PointTransaction, StudentClass, Department
 } from '@/types/school';
 
 // Schools
@@ -556,8 +556,8 @@ export const DUMMY_STUDENTS: Student[] = [];
 
 // Helper function to generate student records
 function generateStudents(startUserId: number, schoolId: string, prefix: string, count: number) {
-  const classes = ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B', 'SS1A', 'SS1B', 'SS1C', 'SS2A', 'SS2B', 'SS2C', 'SS3A', 'SS3B', 'SS3C'];
-  const departments = ['Science', 'Art', 'Commercial'];
+  const classes: StudentClass[] = ['JSS1A', 'JSS1B', 'JSS2A', 'JSS2B', 'JSS3A', 'JSS3B', 'SS1A', 'SS1B', 'SS1C', 'SS2A', 'SS2B', 'SS2C', 'SS3A', 'SS3B', 'SS3C'];
+  const departments: Department[] = ['Science', 'Art', 'Commercial'];
   
   for (let i = 0; i < count; i++) {
     const studentClass = classes[i % classes.length];
