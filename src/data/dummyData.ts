@@ -680,12 +680,12 @@ export const DUMMY_POINT_TRANSACTIONS: PointTransaction[] = [
 // Export badges for compatibility
 export const AVAILABLE_BADGES = DUMMY_BADGES;
 
-// Current User Context (switches based on login) - Default to student for /student route
+// Current User Context (supports all three role types for demo purposes)
 export const CURRENT_USER = {
-  user: DUMMY_USERS[3], // First student user
+  user: DUMMY_USERS[3], // First student user  
   student: DUMMY_STUDENTS[0], // First student record
-  teacher: null,
-  principal: null
+  teacher: DUMMY_TEACHERS[0], // First teacher record  
+  principal: DUMMY_PRINCIPALS[0] // First principal record
 };
 
 // Login credentials for testing
