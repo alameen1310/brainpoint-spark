@@ -680,19 +680,81 @@ export const DUMMY_POINT_TRANSACTIONS: PointTransaction[] = [
 // Export badges for compatibility
 export const AVAILABLE_BADGES = DUMMY_BADGES;
 
+// Login Credentials for Testing - Structured School IDs
+export const LOGIN_CREDENTIALS = [
+  // BrainPoint College
+  { username: 'BP/ADMIN/001', password: 'Admin@001', role: 'principal', name: 'Mr. Johnson' },
+  { username: 'BP/STAFF/001', password: 'Teacher@001', role: 'teacher', name: 'Mrs. Chioma Okafor' },
+  { username: 'BP/STAFF/002', password: 'Teacher@002', role: 'teacher', name: 'Mr. Tunde Adebayo' },
+  { username: 'BP/STAFF/003', password: 'Teacher@003', role: 'teacher', name: 'Miss Fatima Hassan' },
+  { username: 'BP/STAFF/004', password: 'Teacher@004', role: 'teacher', name: 'Dr. Adunni Kolade' },
+  { username: 'BP/2024/001', password: 'Student@001', role: 'student', name: 'Emeka Nwankwo' },
+  { username: 'BP/2024/002', password: 'Student@002', role: 'student', name: 'Aisha Mohammed' },
+  { username: 'BP/2024/003', password: 'Student@003', role: 'student', name: 'Kemi Adeyemi' },
+  { username: 'BP/2024/004', password: 'Student@004', role: 'student', name: 'David Okoye' },
+  { username: 'BP/2024/005', password: 'Student@005', role: 'student', name: 'Grace Okoro' },
+
+  // Branded College
+  { username: 'BC/ADMIN/001', password: 'Admin@001', role: 'principal', name: 'Mrs. Smith' },
+  { username: 'BC/STAFF/001', password: 'Teacher@001', role: 'teacher', name: 'Mr. James Okoye' },
+  { username: 'BC/STAFF/002', password: 'Teacher@002', role: 'teacher', name: 'Mrs. Grace Emeka' },
+  { username: 'BC/STAFF/003', password: 'Teacher@003', role: 'teacher', name: 'Mr. Paul Ibrahim' },
+  { username: 'BC/STAFF/004', password: 'Teacher@004', role: 'teacher', name: 'Miss Sarah Adamu' },
+  { username: 'BC/2024/001', password: 'Student@001', role: 'student', name: 'Chidi Okafor' },
+  { username: 'BC/2024/002', password: 'Student@002', role: 'student', name: 'Amina Bello' },
+  { username: 'BC/2024/003', password: 'Student@003', role: 'student', name: 'Tunde Adebayo' },
+  { username: 'BC/2024/004', password: 'Student@004', role: 'student', name: 'Gift Okoro' },
+  { username: 'BC/2024/005', password: 'Student@005', role: 'student', name: 'Musa Ibrahim' },
+
+  // Kingsway Academy
+  { username: 'KA/ADMIN/001', password: 'Admin@001', role: 'principal', name: 'Dr. Ade' },
+  { username: 'KA/STAFF/001', password: 'Teacher@001', role: 'teacher', name: 'Mrs. Blessing Nkomo' },
+  { username: 'KA/STAFF/002', password: 'Teacher@002', role: 'teacher', name: 'Mr. Victor Chukwu' },
+  { username: 'KA/STAFF/003', password: 'Teacher@003', role: 'teacher', name: 'Dr. Amina Usman' },
+  { username: 'KA/STAFF/004', password: 'Teacher@004', role: 'teacher', name: 'Mr. Daniel Ojo' },
+  { username: 'KA/STAFF/005', password: 'Teacher@005', role: 'teacher', name: 'Mrs. Rachael Odoh' },
+  { username: 'KA/2024/001', password: 'Student@001', role: 'student', name: 'Adaeze Okafor' },
+  { username: 'KA/2024/002', password: 'Student@002', role: 'student', name: 'Muhammad Bello' },
+  { username: 'KA/2024/003', password: 'Student@003', role: 'student', name: 'Chinonso Eze' },
+  { username: 'KA/2024/004', password: 'Student@004', role: 'student', name: 'Aisha Yusuf' },
+  { username: 'KA/2024/005', password: 'Student@005', role: 'student', name: 'Emeka Udoh' }
+];
+
 // Current User Context (supports all three role types for demo purposes)
 export const CURRENT_USER = {
-  user: DUMMY_USERS[3], // First student user  
+  user: DUMMY_USERS[0], // Principal user  
   student: DUMMY_STUDENTS[0], // First student record
   teacher: DUMMY_TEACHERS[0], // First teacher record  
   principal: DUMMY_PRINCIPALS[0] // First principal record
 };
 
-// Login credentials for testing
-export const LOGIN_CREDENTIALS = [
-  { userId: 'BP/2024/001', password: 'demo123', role: 'student' },
-  { userId: 'BP/STAFF/001', password: 'demo123', role: 'teacher' },
-  { userId: 'BP/ADMIN/001', password: 'demo123', role: 'principal' },
-  { userId: 'BC/ADMIN/001', password: 'demo123', role: 'principal' },
-  { userId: 'KA/ADMIN/001', password: 'demo123', role: 'principal' }
-];
+// Helper function to generate next user ID
+export const generateNextUserId = (schoolId: string, role: 'student' | 'teacher') => {
+  const schoolPrefix = schoolId === 'school-1' ? 'BP' : schoolId === 'school-2' ? 'BC' : 'KA';
+  
+  if (role === 'student') {
+    const existingStudents = DUMMY_USERS.filter(u => 
+      u.role === 'student' && u.schoolId === schoolId
+    ).length;
+    return `${schoolPrefix}/2024/${String(existingStudents + 1).padStart(3, '0')}`;
+  } else {
+    const existingTeachers = DUMMY_USERS.filter(u => 
+      u.role === 'teacher' && u.schoolId === schoolId
+    ).length;
+    return `${schoolPrefix}/STAFF/${String(existingTeachers + 1).padStart(3, '0')}`;
+  }
+};
+
+// Helper function to generate password
+export const generatePassword = (role: 'student' | 'teacher', number: number) => {
+  const prefix = role === 'student' ? 'Student' : 'Teacher';
+  return `${prefix}@${String(number).padStart(3, '0')}`;
+};
+
+// Console log login credentials for testing
+console.log('🔐 LOGIN CREDENTIALS FOR TESTING:');
+console.log('=====================================');
+LOGIN_CREDENTIALS.forEach(cred => {
+  console.log(`${cred.role.toUpperCase()}: ${cred.username} / ${cred.password} (${cred.name})`);
+});
+console.log('=====================================');
