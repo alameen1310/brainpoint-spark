@@ -9,101 +9,106 @@
 @layer base {
   :root {
     /* Background & Surface Colors */
-    --background: 240 10% 98%;
-    --foreground: 220 15% 15%;
-    --surface: 240 20% 96%;
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+    --surface: 220 14% 96%;
     --surface-elevated: 0 0% 100%;
 
-    /* Brand Colors - Educational Blue with Gold Accents */
-    --primary: 220 85% 50%;
+    /* Brand Colors - Professional Navy Blue */
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 220 85% 60%;
-    --primary-dark: 220 85% 40%;
+    --primary-light: 221 83% 63%;
+    --primary-dark: 221 83% 43%;
 
-    /* Secondary - Academic Green */
-    --secondary: 160 60% 45%;
+    /* Secondary - Trust Green */
+    --secondary: 160 84% 39%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 160 60% 55%;
+    --secondary-light: 160 84% 49%;
 
-    /* Accent - Achievement Gold */
-    --accent: 45 95% 55%;
-    --accent-foreground: 220 15% 15%;
-    --accent-light: 45 95% 65%;
+    /* Accent - Warm Orange */
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 25 95% 63%;
 
-    /* Ranking Colors */
-    --gold: 45 100% 50%;
-    --silver: 210 10% 70%;
-    --bronze: 25 75% 50%;
-    --diamond: 200 100% 70%;
+    /* Ranking Colors - Professional Solid Colors */
+    --gold: 45 93% 47%;
+    --silver: 220 9% 46%;
+    --bronze: 25 85% 55%;
+    --diamond: 197 71% 73%;
 
     /* Status Colors */
-    --success: 140 70% 45%;
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
-    --warning: 35 100% 50%;
-    --warning-foreground: 220 15% 15%;
-    --destructive: 0 75% 55%;
+    --warning: 32 95% 44%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     /* Neutral Colors */
-    --muted: 240 10% 92%;
-    --muted-foreground: 220 10% 45%;
-    --border: 240 10% 88%;
-    --input: 240 10% 90%;
-    --ring: 220 85% 50%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
 
     /* Card & Popover */
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card-foreground: 220 13% 18%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover-foreground: 220 13% 18%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 85% 50%), hsl(220 85% 60%));
-    --gradient-accent: linear-gradient(135deg, hsl(45 95% 55%), hsl(45 95% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 10% 98%), hsl(220 85% 96%));
-    --gradient-ranking: linear-gradient(135deg, hsl(45 100% 50%), hsl(25 75% 50%));
+    /* Solid Color Backgrounds (No Gradients) */
+    --primary-bg: 221 83% 53%;
+    --secondary-bg: 160 84% 39%;
+    --accent-bg: 25 95% 53%;
+    --success-bg: 142 76% 36%;
 
-    /* Shadows & Effects */
-    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
-    --shadow-gold: 0 0 30px hsl(var(--gold) / 0.4);
-    --shadow-card: 0 4px 20px hsl(220 15% 15% / 0.08);
+    /* Professional Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 
   .dark {
     /* Dark Mode Colors */
-    --background: 220 20% 8%;
-    --foreground: 210 20% 95%;
-    --surface: 220 20% 10%;
-    --surface-elevated: 220 20% 12%;
+    --background: 220 13% 9%;
+    --foreground: 220 14% 96%;
+    --surface: 220 13% 11%;
+    --surface-elevated: 220 13% 13%;
 
-    --primary: 220 85% 60%;
-    --primary-foreground: 220 20% 8%;
-    --primary-light: 220 85% 70%;
-    --primary-dark: 220 85% 50%;
+    --primary: 221 83% 63%;
+    --primary-foreground: 220 13% 9%;
+    --primary-light: 221 83% 73%;
+    --primary-dark: 221 83% 53%;
 
-    --secondary: 160 60% 55%;
-    --secondary-foreground: 220 20% 8%;
-    --secondary-light: 160 60% 65%;
+    --secondary: 160 84% 49%;
+    --secondary-foreground: 220 13% 9%;
+    --secondary-light: 160 84% 59%;
 
-    --accent: 45 95% 65%;
-    --accent-foreground: 220 20% 8%;
-    --accent-light: 45 95% 75%;
+    --accent: 25 95% 63%;
+    --accent-foreground: 220 13% 9%;
+    --accent-light: 25 95% 73%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 210 15% 60%;
-    --border: 220 20% 18%;
-    --input: 220 20% 16%;
-    --ring: 220 85% 60%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 8.9% 64.1%;
+    --border: 220 13% 18%;
+    --input: 220 13% 16%;
+    --ring: 221 83% 63%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 210 20% 95%;
-    --popover: 220 20% 12%;
-    --popover-foreground: 210 20% 95%;
+    --card: 220 13% 13%;
+    --card-foreground: 220 14% 96%;
+    --popover: 220 13% 13%;
+    --popover-foreground: 220 14% 96%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%), hsl(220 85% 12%));
-    --shadow-card: 0 4px 20px hsl(220 20% 5% / 0.3);
+    --primary-bg: 221 83% 63%;
+    --secondary-bg: 160 84% 49%;
+    --accent-bg: 25 95% 63%;
+    --success-bg: 142 76% 46%;
+
+    --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
   }
 }
 
@@ -150,37 +155,37 @@
     filter: drop-shadow(0 0 20px hsl(var(--gold) / 0.6));
   }
 
-  /* Ranking Cards */
+  /* Ranking Cards - Solid Colors */
   .rank-card-gold {
-    @apply bg-gradient-to-br from-yellow-50 to-yellow-100 border-2 border-yellow-300
-           dark:from-yellow-900/20 dark:to-yellow-800/20 dark:border-yellow-600/50;
-    box-shadow: 0 8px 32px hsl(var(--gold) / 0.3);
+    @apply bg-yellow-50 border-2 border-yellow-200
+           dark:bg-yellow-950/20 dark:border-yellow-800/50;
+    box-shadow: var(--shadow-lg);
   }
 
   .rank-card-silver {
-    @apply bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-300
-           dark:from-gray-800/20 dark:to-gray-700/20 dark:border-gray-500/50;
-    box-shadow: 0 8px 32px hsl(var(--silver) / 0.3);
+    @apply bg-gray-50 border-2 border-gray-200
+           dark:bg-gray-900/20 dark:border-gray-700/50;
+    box-shadow: var(--shadow-lg);
   }
 
   .rank-card-bronze {
-    @apply bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-300
-           dark:from-orange-900/20 dark:to-orange-800/20 dark:border-orange-600/50;
-    box-shadow: 0 8px 32px hsl(var(--bronze) / 0.3);
+    @apply bg-orange-50 border-2 border-orange-200
+           dark:bg-orange-950/20 dark:border-orange-800/50;
+    box-shadow: var(--shadow-lg);
   }
 
   /* Hover Effects */
   .hover-lift {
-    @apply transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-300 hover:transform hover:-translate-y-1;
+    box-shadow: var(--shadow-lg);
   }
 
-  .hover-glow {
-    @apply transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)];
+  .hover-lift:hover {
+    box-shadow: var(--shadow-lg);
   }
 
-  /* Progress Bar */
-  .progress-glow {
-    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    box-shadow: 0 0 15px hsl(var(--primary) / 0.4);
+  /* Progress Bar - Solid Color */
+  .progress-solid {
+    background: hsl(var(--primary));
   }
 }

@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import rankMeMascot from '@/assets/rankme-mascot.png';
+import rankMeMascotSmall from '@/assets/rankme-mascot-small.png';
 
 const RankMeLanding = () => {
   const [signupData, setSignupData] = useState({
@@ -146,70 +148,103 @@ const RankMeLanding = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border z-50">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <img src={rankMeMascotSmall} alt="RankMe Mascot" className="w-10 h-10" />
+            <span className="text-2xl font-bold text-foreground">RankMe</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Features</a>
+            <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</a>
+            <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">Reviews</a>
+            <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a>
+            <Button variant="outline" onClick={() => navigate('/portal')}>Login</Button>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
-        <div className="absolute inset-0 opacity-20"></div>
-        
-        <div className="relative container mx-auto px-4 py-24 lg:py-32">
-          <div className="text-center max-w-4xl mx-auto">
-            <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-medium">
-              <Sparkles className="h-4 w-4 mr-2" />
-              Nigeria&apos;s #1 School Management Platform
-            </Badge>
-            
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-6 leading-tight">
-              Transform Your School with
-              <br />
-              <span className="text-primary">RankMe</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Gamify education, boost engagement, and achieve academic excellence through competitive learning and real-time rankings.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                size="lg" 
-                className="px-8 py-6 text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 group"
-                onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Start Free Trial
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="px-8 py-6 text-lg border-2 hover:bg-primary/5"
-                onClick={() => navigate("/portal")}
-              >
-                View Demo Portal
-              </Button>
+      <section className="relative overflow-hidden bg-surface pt-24">
+        <div className="container mx-auto px-4 py-24 lg:py-32">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div className="text-center md:text-left">
+              <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-medium">
+                <Sparkles className="h-4 w-4 mr-2" />
+                Nigeria&apos;s #1 School Management Platform
+              </Badge>
+              
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                Transform Your School with
+                <br />
+                <span className="text-primary">RankMe</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+                Gamify education, boost engagement, and achieve academic excellence through competitive learning and real-time rankings.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-12">
+                <Button 
+                  size="lg" 
+                  className="px-8 py-6 text-lg font-semibold bg-primary hover:bg-primary/90 shadow-lg hover:shadow-lg transition-all duration-300 group hover-lift"
+                  onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Start Free Trial
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="px-8 py-6 text-lg border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  onClick={() => navigate("/portal")}
+                >
+                  View Demo Portal
+                </Button>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto text-center">
-              <div>
-                <div className="text-3xl font-bold text-primary">500+</div>
-                <div className="text-sm text-muted-foreground">Schools</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">50K+</div>
-                <div className="text-sm text-muted-foreground">Students</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">85%</div>
-                <div className="text-sm text-muted-foreground">Engagement ↑</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">92%</div>
-                <div className="text-sm text-muted-foreground">Satisfaction</div>
-              </div>
+            <div className="flex justify-center">
+              <img 
+                src={rankMeMascot} 
+                alt="RankMe Educational Mascot" 
+                className="w-80 h-80 md:w-96 md:h-96 object-contain animate-bounce-subtle"
+              />
             </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center mt-16">
+            <Card className="bg-card border-border">
+              <CardContent className="pt-6">
+                <div className="text-3xl font-bold text-primary mb-1">500+</div>
+                <div className="text-sm text-muted-foreground">Schools</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="pt-6">
+                <div className="text-3xl font-bold text-secondary mb-1">50K+</div>
+                <div className="text-sm text-muted-foreground">Students</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="pt-6">
+                <div className="text-3xl font-bold text-accent mb-1">85%</div>
+                <div className="text-sm text-muted-foreground">Engagement ↑</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border">
+              <CardContent className="pt-6">
+                <div className="text-3xl font-bold text-success mb-1">92%</div>
+                <div className="text-sm text-muted-foreground">Satisfaction</div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-background">
+      <section id="features" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -222,9 +257,9 @@ const RankMeLanding = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="relative overflow-hidden border-2 hover:border-primary/20 transition-all duration-300 hover:shadow-lg group">
+              <Card key={index} className="relative overflow-hidden border-2 hover:border-primary/20 transition-all duration-300 hover:shadow-lg group hover-lift">
                 <CardHeader className="text-center pb-4">
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                     {feature.icon}
                   </div>
                   <CardTitle className="text-2xl mb-2">{feature.title}</CardTitle>
@@ -234,7 +269,7 @@ const RankMeLanding = () => {
                   <ul className="space-y-3">
                     {feature.benefits.map((benefit, idx) => (
                       <li key={idx} className="flex items-center gap-3">
-                        <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                        <Check className="h-5 w-5 text-success flex-shrink-0" />
                         <span>{benefit}</span>
                       </li>
                     ))}
@@ -247,7 +282,7 @@ const RankMeLanding = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 bg-muted/30">
+      <section id="pricing" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -277,10 +312,10 @@ const RankMeLanding = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {pricingPlans.map((plan, index) => (
-              <Card key={index} className={`relative ${plan.recommended ? 'border-primary shadow-lg scale-105' : 'border-2'} hover:shadow-xl transition-all duration-300`}>
+              <Card key={index} className={`relative ${plan.recommended ? 'border-primary shadow-lg scale-105' : 'border-2'} hover:shadow-xl transition-all duration-300 hover-lift`}>
                 {plan.recommended && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-primary to-accent text-white px-4 py-1">
+                    <Badge className="bg-primary text-primary-foreground px-4 py-1">
                       Most Popular
                     </Badge>
                   </div>
@@ -301,14 +336,14 @@ const RankMeLanding = () => {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-3">
-                        <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                        <Check className="h-5 w-5 text-success flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                   
                   <Button 
-                    className={`w-full ${plan.recommended ? 'bg-gradient-to-r from-primary to-accent' : ''}`}
+                    className={`w-full ${plan.recommended ? 'bg-primary hover:bg-primary/90' : ''}`}
                     variant={plan.recommended ? "default" : "outline"}
                     onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
                   >
@@ -322,7 +357,7 @@ const RankMeLanding = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-background">
+      <section id="testimonials" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -335,11 +370,11 @@ const RankMeLanding = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-2 hover:border-primary/20 transition-all duration-300">
+              <Card key={index} className="border-2 hover:border-primary/20 transition-all duration-300 hover-lift">
                 <CardContent className="pt-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="h-5 w-5 fill-accent text-accent" />
                     ))}
                   </div>
                   
@@ -359,7 +394,7 @@ const RankMeLanding = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-muted/30">
+      <section id="faq" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -372,7 +407,7 @@ const RankMeLanding = () => {
 
           <div className="max-w-3xl mx-auto">
             {faqs.map((faq, index) => (
-              <Card key={index} className="mb-4">
+              <Card key={index} className="mb-4 hover-lift">
                 <CardHeader 
                   className="cursor-pointer"
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
@@ -398,7 +433,7 @@ const RankMeLanding = () => {
       </section>
 
       {/* Sign-up Section */}
-      <section id="signup" className="py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      <section id="signup" className="py-24 bg-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
