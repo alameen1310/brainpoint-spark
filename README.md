@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+🎓 RankMe – Gamified School Ranking & Engagement Platform
+📌 Overview
 
-## Project info
+RankMe is a gamified school management web app that motivates students through leaderboards, points, and rewards, while giving teachers and principals easy tools to manage assignments, notes, announcements, and performance tracking.
 
-**URL**: https://lovable.dev/projects/e37d3c73-c510-4b1e-9bd5-57554c8d3729
+The platform is built with React + Vite for speed, modern UI, and scalability.
 
-## How can I edit this code?
+🚀 Features
+👨‍🏫 Principals
 
-There are several ways of editing your application.
+Manage teachers & students within their school.
 
-**Use Lovable**
+View school leaderboard (points, ranks).
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e37d3c73-c510-4b1e-9bd5-57554c8d3729) and start prompting.
+Compare school performance with other schools.
 
-Changes made via Lovable will be committed automatically to this repo.
+Add/remove users with auto-generated credentials.
 
-**Use your preferred IDE**
+👩‍🏫 Teachers
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Post assignments (Google Form / Edulastic links).
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Upload notes & announcements.
 
-Follow these steps:
+Manage student points (add/remove with reasons).
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+View school leaderboard (read-only).
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+👨‍🎓 Students
 
-# Step 3: Install the necessary dependencies.
-npm i
+See their school’s leaderboard.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Access assignments, announcements, and notes.
+
+Track their personal points history (reasons, timestamps, teacher who awarded/removed).
+
+📊 Leaderboard System
+
+Each school has its own independent leaderboard.
+
+Rankings based on points (descending).
+
+Search & sort functionality (by name, points, rank).
+
+Principals can compare school averages vs other schools.
+
+🌍 Multi-School System
+
+Each school gets a custom subdomain (e.g., brainpoint.rankme.edu).
+
+Students & teachers only log in through their school portal.
+
+Principals sign up via the main site (rankme.edu).
+
+🖥️ Tech Stack
+
+Frontend: React + Vite
+
+UI/UX: Modern, responsive design (rounded cards, glowing buttons, smooth shadows, animations).
+
+State Management: (your choice: Context API, Redux, or Zustand)
+
+Routing: React Router
+
+Authentication: Role-based (Principal, Teacher, Student)
+
+Data: Currently seeded with dummy data for testing.
+
+
+
+⚡ Getting Started
+
+Clone the repo:
+
+git clone https://github.com/yourusername/brainpoint-spark.git
+cd rankme
+
+
+Install dependencies:
+
+npm install
+
+
+Run the dev server:
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Open in browser:
 
-**Use GitHub Codespaces**
+http://localhost:5173
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+📌 Roadmap
 
-## What technologies are used for this project?
+ Add real-time database integration (Firebase / Supabase).
 
-This project is built with:
+ Student badges & gamified rewards.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+ Analytics dashboard for principals.
 
-## How can I deploy this project?
+ Payment system for schools (plans: Starter, Growth, Premium).
 
-Simply open [Lovable](https://lovable.dev/projects/e37d3c73-c510-4b1e-9bd5-57554c8d3729) and click on Share -> Publish.
+🤝 Contributing
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
