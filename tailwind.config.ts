@@ -81,15 +81,14 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			backgroundImage: {
-				'solid-primary': 'hsl(var(--primary-bg))',
-				'solid-secondary': 'hsl(var(--secondary-bg))',
-				'solid-accent': 'hsl(var(--accent-bg))',
-				'solid-success': 'hsl(var(--success-bg))',
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-accent': 'var(--gradient-accent)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-ranking': 'var(--gradient-ranking)',
 			},
 			boxShadow: {
-				'sm': 'var(--shadow-sm)',
-				'md': 'var(--shadow-md)',
-				'lg': 'var(--shadow-lg)',
+				'glow': 'var(--shadow-glow)',
+				'gold': 'var(--shadow-gold)',
 				'card': 'var(--shadow-card)',
 			},
 			keyframes: {
