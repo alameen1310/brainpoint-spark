@@ -80,12 +80,20 @@ const RankMeLanding = () => {
       isPopular: false
     },
     {
-      name: "Premium",
-      price: "$49/month",
-      description: "Full features for growing schools",
-      features: ["Unlimited students", "Unlimited teachers", "Advanced analytics", "Priority support", "Custom branding", "API access"],
+      name: "Standard",
+      price: "$29/month",
+      description: "Great for medium-sized schools",
+      features: ["Up to 500 students", "10 teachers", "Advanced leaderboards", "Priority support", "Basic analytics"],
       recommended: true,
       isPopular: true
+    },
+    {
+      name: "Premium",
+      price: "$49/month",
+      description: "Full features for large schools",
+      features: ["Unlimited students", "Unlimited teachers", "Advanced analytics", "24/7 support", "Custom branding", "API access"],
+      recommended: false,
+      isPopular: false
     }
   ];
 
@@ -124,34 +132,62 @@ const RankMeLanding = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-white py-24 lg:py-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+      <section className="bg-white py-16 lg:py-24">
+        <div className="container mx-auto px-8">
+          <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
+            <div className="relative">
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-foreground mb-4 leading-tight">
                 Bringing out the healthy competitor in me with{" "}
-                <span className="text-primary">RankMe</span>
+                <span className="text-primary font-extrabold">RankMe</span>
               </h1>
               
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Making learning fun and engaging with RankMe
               </p>
               
-              <Button 
-                size="lg" 
-                className="px-8 py-6 text-lg font-semibold bg-primary hover:bg-accent hover:text-accent-foreground transition-colors"
-                onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="px-10 py-4 text-lg font-semibold bg-primary hover:bg-accent text-white"
+                  onClick={() => document.getElementById('signup')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="px-10 py-4 text-lg font-semibold border-primary text-primary hover:bg-primary hover:text-white"
+                  onClick={() => navigate("/portal")}
+                >
+                  See Demo Portal
+                </Button>
+              </div>
             </div>
             
-            <div className="flex justify-center">
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Background wave elements */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-64 h-64 rounded-full bg-primary/5"></div>
+                <div className="absolute w-48 h-48 rounded-full bg-accent/10 -top-8 -right-8"></div>
+                <div className="absolute w-32 h-32 rounded-full bg-primary/10 -bottom-4 -left-4"></div>
+              </div>
+              
+              {/* Floating icons */}
+              <div className="absolute top-8 left-8 text-accent animate-pulse">
+                <Trophy className="h-6 w-6" />
+              </div>
+              <div className="absolute top-16 right-4 text-primary animate-pulse">
+                <Star className="h-5 w-5" />
+              </div>
+              <div className="absolute bottom-12 left-4 text-accent animate-pulse">
+                <BookOpen className="h-5 w-5" />
+              </div>
+              
               <img 
                 src={dolphinMascot} 
                 alt="RankMe Dolphin Mascot" 
-                className="w-80 h-80 object-contain"
+                className="relative z-10 w-72 h-72 object-contain transform -scale-x-100"
               />
             </div>
           </div>
@@ -160,7 +196,7 @@ const RankMeLanding = () => {
 
       {/* Features Section */}
       <section className="py-24 bg-surface">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-foreground">
               Everything you need to succeed
@@ -189,8 +225,8 @@ const RankMeLanding = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-primary/5">
+        <div className="container mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-foreground">
               Simple, Transparent Pricing
@@ -200,7 +236,7 @@ const RankMeLanding = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <Card key={index} className={`relative border-2 transition-all duration-300 ${
                 plan.isPopular 
@@ -291,7 +327,7 @@ const RankMeLanding = () => {
 
       {/* Sign-up Section */}
       <section id="signup" className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-6 text-foreground">
