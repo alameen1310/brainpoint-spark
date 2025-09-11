@@ -121,7 +121,7 @@ export default function Landing() {
               onClick={() => handleRoleSelect('student')}
             >
               <CardContent className="p-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-glow">
+                <div className="w-20 h-20 mx-auto mb-6 bg-blue-500 rounded-2xl flex items-center justify-center shadow-glow">
                   <Users className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Student Portal</h3>
@@ -151,7 +151,7 @@ export default function Landing() {
               onClick={() => handleRoleSelect('teacher')}
             >
               <CardContent className="p-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-accent rounded-2xl flex items-center justify-center shadow-gold">
+                <div className="w-20 h-20 mx-auto mb-6 bg-green-500 rounded-2xl flex items-center justify-center shadow-glow">
                   <Users className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Teacher Portal</h3>
@@ -160,15 +160,15 @@ export default function Landing() {
                 </p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center justify-center gap-2">
-                    <Target className="w-4 h-4 text-secondary" />
+                    <Target className="w-4 h-4 text-green-500" />
                     <span>Assignment Management</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
-                    <Star className="w-4 h-4 text-secondary" />
+                    <Star className="w-4 h-4 text-green-500" />
                     <span>Point Awards</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
-                    <Users className="w-4 h-4 text-secondary" />
+                    <Users className="w-4 h-4 text-green-500" />
                     <span>Class Analytics</span>
                   </div>
                 </div>
@@ -181,24 +181,24 @@ export default function Landing() {
               onClick={() => handleRoleSelect('principal')}
             >
               <CardContent className="p-8 text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-secondary rounded-2xl flex items-center justify-center shadow-glow">
+                <div className="w-20 h-20 mx-auto mb-6 bg-yellow-400 rounded-2xl flex items-center justify-center shadow-glow">
                   <Users className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Principal Portal</h3>
                 <p className="text-muted-foreground mb-6">
                   School-wide administration, analytics, user management, and system oversight
                 </p>
-                <div className="space-y-2 text-sm">
+                  <div className="space-y-2 text-sm">
                   <div className="flex items-center justify-center gap-2">
-                    <Trophy className="w-4 h-4 text-secondary" />
+                    <Trophy className="w-4 h-4 text-yellow-400" />
                     <span>School Analytics</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
-                    <Users className="w-4 h-4 text-secondary" />
+                    <Users className="w-4 h-4 text-yellow-400" />
                     <span>User Management</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
-                    <Zap className="w-4 h-4 text-secondary" />
+                    <Zap className="w-4 h-4 text-yellow-400" />
                     <span>System Administration</span>
                   </div>
                 </div>
@@ -212,7 +212,7 @@ export default function Landing() {
       <footer className="py-8 border-t border-border">
         <div className="container mx-auto px-4 text-center">
           <p className="text-muted-foreground">
-            © 2024 BrainPoint College. Empowering minds, shaping futures.
+            © 2025 BrainPoint College. Empowering minds, shaping futures.
           </p>
         </div>
       </footer>

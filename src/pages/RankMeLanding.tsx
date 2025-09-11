@@ -73,25 +73,25 @@ const RankMeLanding = () => {
   const pricingPlans = [
     {
       name: "Basic",
-      price: "Free",
+      price: "₦50k/month",
       description: "Perfect for small schools getting started",
-      features: ["Up to 50 students", "2 teachers", "Basic leaderboards", "Email support"],
+      features: ["Leaderboard (within school)", "Assignments, notes, announcements", "Manage teachers & students", "Up to 200 students"],
       recommended: false,
       isPopular: false
     },
     {
       name: "Standard",
-      price: "$29/month",
+      price: "₦120k/month",
       description: "Great for medium-sized schools",
-      features: ["Up to 500 students", "10 teachers", "Advanced leaderboards", "Priority support", "Basic analytics"],
+      features: ["Everything in Basic", "School-to-School comparison", "Reports & Analytics", "Up to 700 students"],
       recommended: true,
       isPopular: true
     },
     {
       name: "Premium",
-      price: "$49/month",
+      price: "₦250k/month",
       description: "Full features for large schools",
-      features: ["Unlimited students", "Unlimited teachers", "Advanced analytics", "24/7 support", "Custom branding", "API access"],
+      features: ["Everything in Standard", "Custom Branding", "Unlimited students & teachers", "Priority support"],
       recommended: false,
       isPopular: false
     }
@@ -461,7 +461,7 @@ const RankMeLanding = () => {
           </div>
           
           <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 RankMe. All rights reserved.</p>
+            <p>&copy; 2025 RankMe. All rights reserved.</p>
           </div>
         </div>
       </footer>
