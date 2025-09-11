@@ -15,10 +15,12 @@ import {
   ChevronUp,
   ArrowRight,
   GraduationCap,
-  Megaphone
+  Megaphone,
+  Smartphone
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 import dolphinMascot from "@/assets/dolphin-mascot.png";
 import dolphinMascotSmall from "@/assets/dolphin-mascot-small.png";
 
@@ -135,20 +137,35 @@ const RankMeLanding = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-white py-16 lg:py-24 overflow-hidden">
         <div className="container mx-auto px-8">
-          <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
-            <div className="relative">
-              <h1 className="text-4xl lg:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl lg:text-6xl font-extrabold text-foreground mb-6 leading-tight"
+              >
                 Bringing out the healthy competitor in me with{" "}
                 <span className="text-primary font-extrabold">RankMe</span>
-              </h1>
+              </motion.h1>
               
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-xl text-gray-700 mb-12 leading-relaxed max-w-2xl mx-auto"
+              >
                 Making learning fun and engaging with RankMe
-              </p>
+              </motion.p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
                 <Button 
                   size="lg" 
                   className="px-10 py-4 text-lg font-semibold bg-primary hover:bg-accent text-white"
@@ -165,33 +182,178 @@ const RankMeLanding = () => {
                 >
                   See Demo Portal
                 </Button>
-              </div>
+              </motion.div>
             </div>
-            
-            <div className="relative flex justify-center lg:justify-end">
-              {/* Background wave elements */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-64 h-64 rounded-full bg-primary/5"></div>
-                <div className="absolute w-48 h-48 rounded-full bg-accent/10 -top-8 -right-8"></div>
-                <div className="absolute w-32 h-32 rounded-full bg-primary/10 -bottom-4 -left-4"></div>
-              </div>
-              
-              {/* Floating icons */}
-              <div className="absolute top-8 left-8 text-accent animate-pulse">
-                <Trophy className="h-6 w-6" />
-              </div>
-              <div className="absolute top-16 right-4 text-primary animate-pulse">
-                <Star className="h-5 w-5" />
-              </div>
-              <div className="absolute bottom-12 left-4 text-accent animate-pulse">
-                <BookOpen className="h-5 w-5" />
-              </div>
-              
-              <img 
-                src={dolphinMascot} 
-                alt="RankMe Dolphin Mascot" 
-                className="relative z-10 w-72 h-72 object-contain transform -scale-x-100"
-              />
+
+            {/* Device Mockup with Animated Mascot */}
+            <div className="relative flex justify-center items-center">
+              {/* Floating Educational Icons */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="absolute top-8 left-8 text-accent z-20"
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                    rotate: [0, 5, 0]
+                  }}
+                  transition={{ 
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "loop"
+                  }}
+                >
+                  <GraduationCap className="h-8 w-8" />
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+                className="absolute top-16 right-8 text-primary z-20"
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, -15, 0],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    duration: 2.5,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    delay: 0.5
+                  }}
+                >
+                  <Trophy className="h-8 w-8" />
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.6 }}
+                className="absolute bottom-12 left-12 text-accent z-20"
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, -8, 0],
+                    x: [0, 5, 0]
+                  }}
+                  transition={{ 
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    delay: 1
+                  }}
+                >
+                  <BookOpen className="h-7 w-7" />
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.8 }}
+                className="absolute bottom-8 right-12 text-primary z-20"
+              >
+                <motion.div
+                  animate={{ 
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ 
+                    duration: 6,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    delay: 1.5
+                  }}
+                >
+                  <Star className="h-6 w-6" />
+                </motion.div>
+              </motion.div>
+
+              {/* Phone Mockup */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="relative z-10"
+              >
+                <div className="relative">
+                  {/* Phone Frame */}
+                  <div className="w-72 h-[580px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
+                    <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
+                      {/* Phone Screen Content */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10">
+                        {/* Mock App Interface */}
+                        <div className="p-6 h-full flex flex-col">
+                          {/* Header */}
+                          <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-primary/20"></div>
+                              <div className="text-sm font-semibold text-primary">RankMe</div>
+                            </div>
+                            <div className="w-6 h-6 rounded bg-accent/20"></div>
+                          </div>
+                          
+                          {/* Mock Content */}
+                          <div className="space-y-4 flex-1">
+                            <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+                            <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                            <div className="h-12 bg-primary/10 rounded-lg"></div>
+                            <div className="h-8 bg-accent/10 rounded"></div>
+                            <div className="h-8 bg-primary/10 rounded"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Animated Dolphin popping out */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0, x: 20, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 1,
+                      type: "spring",
+                      bounce: 0.6
+                    }}
+                    className="absolute -top-8 -right-8 z-20"
+                  >
+                    <motion.img
+                      src={dolphinMascot}
+                      alt="RankMe Dolphin Mascot"
+                      className="w-40 h-40 object-contain transform -scale-x-100"
+                      animate={{
+                        y: [0, -10, 0],
+                        rotate: [0, 5, 0]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        ease: "easeInOut"
+                      }}
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Background decorative elements */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="absolute inset-0 flex items-center justify-center -z-10"
+              >
+                <div className="w-96 h-96 rounded-full bg-primary/5"></div>
+                <div className="absolute w-64 h-64 rounded-full bg-accent/10 -top-16 -right-16"></div>
+                <div className="absolute w-48 h-48 rounded-full bg-primary/10 -bottom-8 -left-8"></div>
+              </motion.div>
             </div>
           </div>
         </div>
