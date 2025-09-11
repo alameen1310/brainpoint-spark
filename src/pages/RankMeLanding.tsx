@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,7 +16,10 @@ import {
   ChevronUp,
   ArrowRight,
   GraduationCap,
-  Megaphone
+  Megaphone,
+  TrendingUp,
+  Award,
+  Target
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -30,7 +34,42 @@ const RankMeLanding = () => {
     password: ""
   });
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [animationStarted, setAnimationStarted] = useState(false);
   const navigate = useNavigate();
+  const mascotControls = useAnimation();
+  const phoneControls = useAnimation();
+
+  useEffect(() => {
+    const startAnimation = async () => {
+      // Wait 2 seconds before starting animation
+      setTimeout(async () => {
+        setAnimationStarted(true);
+        
+        // Animate dolphin popping out and growing
+        await mascotControls.start({
+          scale: 1.5,
+          y: -50,
+          rotate: 10,
+          transition: {
+            type: "spring",
+            duration: 0.8,
+            bounce: 0.4
+          }
+        });
+        
+        // Shrink phone
+        phoneControls.start({
+          scale: 0.8,
+          transition: {
+            duration: 0.6,
+            ease: "easeInOut"
+          }
+        });
+      }, 2000);
+    };
+
+    startAnimation();
+  }, [mascotControls, phoneControls]);
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,20 +174,35 @@ const RankMeLanding = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-white py-16 lg:py-24 overflow-hidden">
         <div className="container mx-auto px-8">
           <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 items-center">
-            <div className="relative">
-              <h1 className="text-4xl lg:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+            <div className="relative order-2 lg:order-1">
+              <motion.h1 
+                className="text-4xl lg:text-5xl font-extrabold text-foreground mb-4 leading-tight"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
                 Bringing out the healthy competitor in me with{" "}
                 <span className="text-primary font-extrabold">RankMe</span>
-              </h1>
+              </motion.h1>
               
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <motion.p 
+                className="text-lg text-gray-700 mb-8 leading-relaxed"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
                 Making learning fun and engaging with RankMe
-              </p>
+              </motion.p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
                 <Button 
                   size="lg" 
                   className="px-10 py-4 text-lg font-semibold bg-primary hover:bg-accent text-white"
@@ -165,33 +219,199 @@ const RankMeLanding = () => {
                 >
                   See Demo Portal
                 </Button>
-              </div>
+              </motion.div>
             </div>
             
-            <div className="relative flex justify-center lg:justify-end">
-              {/* Background wave elements */}
-              <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative flex justify-center lg:justify-end order-1 lg:order-2 min-h-[500px]">
+              {/* Background elements */}
+              <motion.div 
+                className="absolute inset-0 flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+              >
                 <div className="w-64 h-64 rounded-full bg-primary/5"></div>
                 <div className="absolute w-48 h-48 rounded-full bg-accent/10 -top-8 -right-8"></div>
                 <div className="absolute w-32 h-32 rounded-full bg-primary/10 -bottom-4 -left-4"></div>
-              </div>
-              
-              {/* Floating icons */}
-              <div className="absolute top-8 left-8 text-accent animate-pulse">
-                <Trophy className="h-6 w-6" />
-              </div>
-              <div className="absolute top-16 right-4 text-primary animate-pulse">
-                <Star className="h-5 w-5" />
-              </div>
-              <div className="absolute bottom-12 left-4 text-accent animate-pulse">
-                <BookOpen className="h-5 w-5" />
-              </div>
-              
-              <img 
-                src={dolphinMascot} 
-                alt="RankMe Dolphin Mascot" 
-                className="relative z-10 w-72 h-72 object-contain transform -scale-x-100"
-              />
+              </motion.div>
+
+              {/* Phone Mockup */}
+              <motion.div 
+                className="relative z-20 flex items-center justify-center"
+                animate={phoneControls}
+                initial={{ scale: 1 }}
+              >
+                <div className="relative bg-gray-900 rounded-[2.5rem] p-4 shadow-2xl">
+                  <div className="bg-white rounded-[2rem] w-64 h-[480px] overflow-hidden relative">
+                    {/* Phone screen content */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-blue-100 flex items-center justify-center">
+                      <motion.img 
+                        src={dolphinMascot} 
+                        alt="RankMe Dolphin in Phone" 
+                        className="w-32 h-32 object-contain"
+                        initial={{ scale: 0.8, opacity: 0.8 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                      />
+                    </div>
+                    
+                    {/* Phone UI elements */}
+                    <div className="absolute top-4 left-4 right-4">
+                      <div className="bg-white/80 rounded-lg p-2 text-center">
+                        <div className="text-xs text-gray-600 font-medium">RankMe</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Popping Dolphin */}
+              <motion.div
+                className="absolute z-30 flex items-center justify-center"
+                animate={mascotControls}
+                initial={{ scale: 0, y: 0, rotate: 0, opacity: 0 }}
+                style={{ opacity: animationStarted ? 1 : 0 }}
+              >
+                <img 
+                  src={dolphinMascot} 
+                  alt="RankMe Dolphin Mascot" 
+                  className="w-48 h-48 object-contain drop-shadow-2xl"
+                />
+              </motion.div>
+
+              {/* Floating Educational Icons */}
+              {animationStarted && (
+                <>
+                  <motion.div
+                    className="absolute z-10 text-primary"
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: -120, 
+                      y: -80,
+                      rotate: [0, 10, -10, 0] 
+                    }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 3,
+                      rotate: { repeat: Infinity, duration: 4 }
+                    }}
+                  >
+                    <BookOpen className="h-8 w-8" />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-10 text-yellow-500"
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: 140, 
+                      y: [-60, -50, -60]
+                    }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 3.2,
+                      y: { repeat: Infinity, duration: 3 }
+                    }}
+                  >
+                    <Trophy className="h-8 w-8" />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-10 text-purple-500"
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: -100, 
+                      y: 100,
+                      rotate: [0, 360]
+                    }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 3.4,
+                      rotate: { repeat: Infinity, duration: 8 }
+                    }}
+                  >
+                    <GraduationCap className="h-8 w-8" />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-10 text-green-500"
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: [1, 1.2, 1],
+                      x: 120, 
+                      y: 80
+                    }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 3.6,
+                      scale: { repeat: Infinity, duration: 2 }
+                    }}
+                  >
+                    <TrendingUp className="h-8 w-8" />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-10 text-red-500"
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: [0, 15, -15, 0],
+                      y: -120
+                    }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 3.8,
+                      x: { repeat: Infinity, duration: 4 }
+                    }}
+                  >
+                    <Star className="h-8 w-8" />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-10 text-orange-500"
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: -160, 
+                      y: 20,
+                      rotate: [0, -15, 15, 0]
+                    }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 4,
+                      rotate: { repeat: Infinity, duration: 3 }
+                    }}
+                  >
+                    <Award className="h-8 w-8" />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute z-10 text-blue-600"
+                    initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      scale: 1, 
+                      x: 160, 
+                      y: [20, 10, 20]
+                    }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 4.2,
+                      y: { repeat: Infinity, duration: 2.5 }
+                    }}
+                  >
+                    <Target className="h-8 w-8" />
+                  </motion.div>
+                </>
+              )}
             </div>
           </div>
         </div>
