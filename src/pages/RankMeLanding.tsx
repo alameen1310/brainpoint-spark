@@ -501,26 +501,9 @@ const RankMeLanding = () => {
                   }}
                   className="relative"
                 >
-                  <img
-                    src={dolphinMascot}
-                    alt="Happy Dolphin"
-                    className="w-48 h-48 object-contain"
-                  />
+
                   {/* Badge on dolphin's nose */}
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, 0]
-                    }}
-                    transition={{ 
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="absolute top-20 right-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full p-1 shadow-lg"
-                  >
-                    <Star className="w-4 h-4 text-white" />
-                  </motion.div>
+                 
                 </motion.div>
               </motion.div>
             </div>
