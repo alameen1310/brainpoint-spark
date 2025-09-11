@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,7 +8,15 @@ import { Trophy, Star, Zap, Target, Users, Award } from 'lucide-react';
 
 export default function Landing() {
   const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
+  const [schoolName, setSchoolName] = useState<string>('Your School');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedName = localStorage.getItem('schoolName');
+    if (storedName && storedName.trim()) {
+      setSchoolName(storedName);
+    }
+  }, []);
 
   const handleLogin = (role: UserRole, credentials: { schoolId: string; password: string }) => {
     // In a real app, this would authenticate with backend
@@ -60,8 +68,8 @@ export default function Landing() {
         <div className="container mx-auto px-4 py-16">
           <div className="text-center space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                BrainPoint College
+              <h1 className="text-5xl md:text-7xl font-bold text-blue-600">
+                {schoolName}
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
                 Excellence in Education • Gamified Learning • Student Success

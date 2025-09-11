@@ -34,11 +34,14 @@ const RankMeLanding = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!signupData.fullName || !signupData.email || !signupData.schoolName || !signupData.password) {
       toast.error("Please fill in all fields");
       return;
     }
+
+    // Save school name to localStorage for Landing.tsx
+    localStorage.setItem("schoolName", signupData.schoolName);
 
     // Generate subdomain from school name
     const subdomain = signupData.schoolName
