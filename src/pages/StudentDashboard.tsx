@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -15,6 +15,15 @@ export default function StudentDashboard() {
   const navigate = useNavigate();
   const [selectedPeriod, setSelectedPeriod] = useState<RankingPeriod>('weekly');
   const student = CURRENT_USER.student;
+  const [schoolName, setSchoolName] = useState<string>('Your School');
+
+  // Fetch school name from localStorage on mount
+  useEffect(() => {
+    const storedName = localStorage.getItem('schoolName');
+    if (storedName && storedName.trim()) {
+      setSchoolName(storedName);
+    }
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
@@ -42,7 +51,7 @@ export default function StudentDashboard() {
                 <Home className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold">BrainPoint College</h1>
+                <h1 className="text-2xl font-bold">{schoolName}</h1>
                 <p className="text-sm text-muted-foreground">Student Portal</p>
               </div>
             </div>
