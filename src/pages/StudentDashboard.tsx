@@ -7,9 +7,10 @@ import LeaderboardCard from '@/components/student/LeaderboardCard';
 import ProgressCard from '@/components/student/ProgressCard';
 import AssignmentsCard from '@/components/student/AssignmentsCard';
 import AnnouncementsCard from '@/components/student/AnnouncementsCard';
+import { MyNotesSection } from '@/components/student/MyNotesSection';
 import { CURRENT_USER } from '@/data/dummyData';
 import { RankingPeriod } from '@/types/school';
-import { LogOut, Trophy, Target, BookOpen, Megaphone, Home } from 'lucide-react';
+import { LogOut, Trophy, Target, BookOpen, Megaphone, Home, FileText } from 'lucide-react';
 
 export default function StudentDashboard() {
   const navigate = useNavigate();
@@ -125,7 +126,7 @@ export default function StudentDashboard() {
       <section className="pb-8">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="dashboard" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto">
+            <TabsList className="grid w-full grid-cols-5 max-w-3xl mx-auto">
               <TabsTrigger value="dashboard" className="flex items-center gap-2">
                 <Trophy className="w-4 h-4" />
                 Dashboard
@@ -133,6 +134,10 @@ export default function StudentDashboard() {
               <TabsTrigger value="leaderboard" className="flex items-center gap-2">
                 <Trophy className="w-4 h-4" />
                 Rankings
+              </TabsTrigger>
+              <TabsTrigger value="my-notes" className="flex items-center gap-2">
+                <FileText className="w-4 h-4" />
+                My Notes
               </TabsTrigger>
               <TabsTrigger value="assignments" className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4" />
@@ -207,6 +212,13 @@ export default function StudentDashboard() {
                   <ProgressCard student={student} />
                 </div>
               </div>
+            </TabsContent>
+
+            <TabsContent value="my-notes" className="space-y-6">
+              <MyNotesSection 
+                studentId={student.id} 
+                schoolId={student.schoolId}
+              />
             </TabsContent>
 
             <TabsContent value="assignments" className="space-y-6">

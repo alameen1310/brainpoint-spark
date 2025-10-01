@@ -170,6 +170,33 @@ export type Database = {
         }
         Relationships: []
       }
+      flashcards: {
+        Row: {
+          answer: string
+          created_at: string
+          id: string
+          note_id: string
+          question: string
+          student_id: string
+        }
+        Insert: {
+          answer: string
+          created_at?: string
+          id?: string
+          note_id: string
+          question: string
+          student_id: string
+        }
+        Update: {
+          answer?: string
+          created_at?: string
+          id?: string
+          note_id?: string
+          question?: string
+          student_id?: string
+        }
+        Relationships: []
+      }
       notes: {
         Row: {
           created_at: string
@@ -331,6 +358,66 @@ export type Database = {
           },
         ]
       }
+      quiz_questions: {
+        Row: {
+          correct_answer: string
+          created_at: string
+          id: string
+          option_a: string
+          option_b: string
+          option_c: string
+          option_d: string
+          question: string
+          quiz_id: string
+        }
+        Insert: {
+          correct_answer: string
+          created_at?: string
+          id?: string
+          option_a: string
+          option_b: string
+          option_c: string
+          option_d: string
+          question: string
+          quiz_id: string
+        }
+        Update: {
+          correct_answer?: string
+          created_at?: string
+          id?: string
+          option_a?: string
+          option_b?: string
+          option_c?: string
+          option_d?: string
+          question?: string
+          quiz_id?: string
+        }
+        Relationships: []
+      }
+      quizzes: {
+        Row: {
+          created_at: string
+          id: string
+          note_id: string
+          student_id: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          note_id: string
+          student_id: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          note_id?: string
+          student_id?: string
+          title?: string
+        }
+        Relationships: []
+      }
       schools: {
         Row: {
           address: string | null
@@ -399,6 +486,45 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      student_notes: {
+        Row: {
+          created_at: string
+          error_message: string | null
+          file_path: string
+          file_size: number | null
+          id: string
+          processing_status: string
+          school_id: string
+          student_id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          error_message?: string | null
+          file_path: string
+          file_size?: number | null
+          id?: string
+          processing_status?: string
+          school_id: string
+          student_id: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          error_message?: string | null
+          file_path?: string
+          file_size?: number | null
+          id?: string
+          processing_status?: string
+          school_id?: string
+          student_id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       students: {
         Row: {
