@@ -100,6 +100,25 @@ export const MyNotesSection = ({ studentId, schoolId }: MyNotesSectionProps) => 
     }
   }, [selectedNote]);
 
+  // Poll processing status while note is pending/processing
+  useEffect(() => {
+    if (!selectedNote?.id) return;
+    if (selectedNote.processing_status === 'processing' || selectedNote.processing_status === 'pending') {
+      const interval = setInterval(async () => {
+        const { data, error } = await supabase
+          .from('student_notes')
+          .select('*')
+          .eq('id', selectedNote.id)
+          .single();
+        if (!error && data) {
+          setNotes(prev => prev.map(n => n.id === data.id ? (data as any) : n));
+          setSelectedNote(data as any);
+        }
+      }, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [selectedNote?.id, selectedNote?.processing_status]);
+
   const handleDeleteNote = async (noteId: string) => {
     const { error } = await supabase
       .from('student_notes')
