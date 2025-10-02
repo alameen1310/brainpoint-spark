@@ -73,7 +73,7 @@ serve(async (req) => {
     }
 
     if (!pdfText || pdfText.trim().length < 50) {
-      throw new Error('PDF appears to be empty or contains very little text');
+      throw new Error('PDF appears to be empty, scanned, or image-based. Please upload a PDF with selectable text (not scanned images). Extracted text length: ' + pdfText.trim().length);
     }
 
     // Call Lovable AI to generate flashcards and quiz
@@ -274,7 +274,8 @@ Return your response in this exact JSON format:
 
     // Try to update note with error status
     try {
-      const { noteId } = await req.json();
+      const requestBody = await req.clone().json();
+      const { noteId } = requestBody;
       const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
       const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
       const supabase = createClient(supabaseUrl, supabaseServiceKey);
