@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.57.0";
 import PDFParser from "npm:pdf-parse@1.1.1";
+import { pdf } from "npm:pdf-to-img@3.0.3";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -23,7 +24,7 @@ serve(async (req) => {
 
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
     const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-    const lovableApiKey = Deno.env.get('LOVABLE_API_KEY')!;
+    const openAIApiKey = Deno.env.get('OPENAI_API_KEY')!;
     
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
@@ -58,35 +59,105 @@ serve(async (req) => {
 
     console.log('Downloaded PDF, size:', pdfData.size);
 
-    // Extract text from PDF
+    // Try to extract text from PDF first
     const arrayBuffer = await pdfData.arrayBuffer();
     const buffer = new Uint8Array(arrayBuffer);
     
     let pdfText = '';
-    try {
-      const pdfData = await PDFParser(buffer);
-      pdfText = pdfData.text;
-      console.log('Extracted text length:', pdfText.length);
-    } catch (parseError) {
-      console.error('PDF parsing error:', parseError);
-      throw new Error('Failed to parse PDF. Make sure it\'s a valid PDF file.');
-    }
-
-    if (!pdfText || pdfText.trim().length < 50) {
-      throw new Error('PDF appears to be empty, scanned, or image-based. Please upload a PDF with selectable text (not scanned images). Extracted text length: ' + pdfText.trim().length);
-    }
-
-    // Call Lovable AI to generate flashcards and quiz
-    console.log('Calling AI to generate content...');
+    let useVision = false;
     
-    const aiResponse = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
+    try {
+      const parsedPdf = await PDFParser(buffer);
+      pdfText = parsedPdf.text;
+      console.log('Extracted text length:', pdfText.length);
+      
+      // If very little text, use vision API
+      if (!pdfText || pdfText.trim().length < 100) {
+        console.log('PDF has little/no text, using vision API');
+        useVision = true;
+      }
+    } catch (parseError) {
+      console.error('PDF parsing error, will use vision API:', parseError);
+      useVision = true;
+    }
+
+    let contentToAnalyze = '';
+    
+    if (useVision) {
+      // Convert PDF pages to images and use GPT-4 Vision
+      console.log('Converting PDF pages to images...');
+      const document = await pdf(buffer, { scale: 2.0 });
+      const images: string[] = [];
+      
+      // Process up to 10 pages
+      let pageCount = 0;
+      for await (const page of document) {
+        if (pageCount >= 10) break;
+        const base64 = Buffer.from(page).toString('base64');
+        images.push(`data:image/png;base64,${base64}`);
+        pageCount++;
+      }
+      
+      console.log(`Converted ${images.length} pages to images`);
+      
+      // Use GPT-4 Vision to extract content
+      const visionMessages = [
+        {
+          role: 'system',
+          content: 'You are an educational assistant. Extract all text, formulas, diagrams, and key concepts from these lecture note images.'
+        },
+        {
+          role: 'user',
+          content: [
+            {
+              type: 'text',
+              text: 'Please extract all the content from these lecture note pages, including text, mathematical formulas, diagrams descriptions, and key concepts. Be thorough and detailed.'
+            },
+            ...images.map(img => ({
+              type: 'image_url',
+              image_url: { url: img }
+            }))
+          ]
+        }
+      ];
+      
+      const visionResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${openAIApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'gpt-4o',
+          messages: visionMessages,
+          max_tokens: 4000,
+        }),
+      });
+      
+      if (!visionResponse.ok) {
+        const errorText = await visionResponse.text();
+        console.error('Vision API error:', visionResponse.status, errorText);
+        throw new Error('Failed to analyze PDF images');
+      }
+      
+      const visionData = await visionResponse.json();
+      contentToAnalyze = visionData.choices[0].message.content;
+      console.log('Extracted content from images, length:', contentToAnalyze.length);
+    } else {
+      contentToAnalyze = pdfText.slice(0, 15000);
+    }
+
+    // Call OpenAI to generate flashcards and quiz
+    console.log('Calling OpenAI to generate study materials...');
+    
+    const aiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${lovableApiKey}`,
+        'Authorization': `Bearer ${openAIApiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'google/gemini-2.5-flash',
+        model: 'gpt-4o',
         messages: [
           {
             role: 'system',
@@ -99,7 +170,7 @@ serve(async (req) => {
 2. A quiz with 5-10 multiple choice questions with 4 options each
 
 Notes content:
-${pdfText.slice(0, 15000)}
+${contentToAnalyze}
 
 Return your response in this exact JSON format:
 {
