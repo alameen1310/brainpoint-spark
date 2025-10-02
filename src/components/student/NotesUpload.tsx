@@ -44,12 +44,8 @@ export const NotesUpload = ({ studentId, schoolId, onUploadComplete }: NotesUplo
     setUploading(true);
 
     try {
-      // Get current user
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) throw new Error('Not authenticated');
-
       // Upload to storage
-      const fileName = `${user.id}/${Date.now()}-${file.name}`;
+      const fileName = `${studentId}/${Date.now()}-${file.name}`;
       const { error: uploadError } = await supabase.storage
         .from('student-notes')
         .upload(fileName, file);
